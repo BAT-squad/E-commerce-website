@@ -15,6 +15,20 @@ const updateUser = (id, newData, callback) => {
     });
 };
 
+const updateUserCoverPic = (id,newCoverPic,callback)=>{
+    const query = 'UPDATE users SET coverUrl = ? WHERE userID = ?'
+    const values = [newCoverPic,id]
+    db.query(query, values, (err, result) => {
+        if (err) {
+            console.error('Database error:', err);
+            callback(err, null);
+        } else {
+            callback(null, result);
+        }
+    })
+}
+
 module.exports = {
-    updateUser
+    updateUser,
+    updateUserCoverPic
 };

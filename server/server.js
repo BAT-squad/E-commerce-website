@@ -12,7 +12,7 @@ app.use(cors())
 
 
 app.use('/api/products',getproducts)
-app.use('/api/users/:userId',userRoute)
+app.use('/api/user',userRoute)
 
 
 

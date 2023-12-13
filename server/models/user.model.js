@@ -2,8 +2,8 @@ const db = require('./index.js')
 
 
 const updateUser = (id, newData, callback) => {
-    const query = 'UPDATE users SET userName = ?, bio = ?, password = ?, email = ?, birthday = ?, coverUrl = ? WHERE userID = ?';
-    const values = [newData.userName, newData.bio, newData.password, newData.email, newData.birthday, newData.coverUrl, id];
+    const query = 'UPDATE users SET userName = ?, bio = ?, password = ?, email = ?, birthday = ? WHERE userID = ?';
+    const values = [newData.userName, newData.bio, newData.password, newData.email, newData.birthday,id];
 
     db.query(query, values, (err, result) => {
         if (err) {

@@ -10,7 +10,7 @@ import {
   getDownloadURL,
 } from "firebase/storage";
 import { app } from "../firebase.js";
-
+import axios from "axios";
 
 const Profile = () => {
   const navigate = useNavigate("/edit-profile");
@@ -50,9 +50,18 @@ const Profile = () => {
     }
   };
 
+  const handleUpdateCoverPicClick = () => {
+    axios
+      .put("http://localhost:5001/api/user/update/cover-pic/1", {
+        coverUrl: coverPic,
+      })
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
+  };
+
   return (
     <main className="p-9">
-      <div className="relative block h-[300px] rounded-lg">
+      <div className="relative block h-[500px] rounded-lg">
         <div>
           <input
             type="file"
@@ -65,9 +74,12 @@ const Profile = () => {
             onClick={() => coverPicRef.current.click()}
             alt="..."
             className="cursor-pointer absolute top-0 w-full h-full object-cover rounded-lg"
-            src="https://www.pearlizumi.com/cdn/shop/collections/BG_page_BG_Pattern-01_da3751ed-c5ad-4b19-9bbd-8300661fec90_1440x@2x.png?v=1691763757"
+            src={
+              coverPic ||
+              "https://www.pearlizumi.com/cdn/shop/collections/BG_page_BG_Pattern-01_da3751ed-c5ad-4b19-9bbd-8300661fec90_1440x@2x.png?v=1691763757"
+            }
           />
-          <div className="absolute bottom-[-15%] h-[120px] w-full  flex items-center justify-center">
+          <div  className="absolute bottom-[-15%] h-[120px] w-full  flex items-center justify-center">
             <div className="bg-white w-[120px] h-[120px] rounded-full p-1 ">
               <img
                 src="https://media.sproutsocial.com/uploads/2022/06/profile-picture.jpeg"
@@ -80,19 +92,22 @@ const Profile = () => {
               <h1 className="text-white text-center text-xl mt-5 whitespace-nowrap font-semibold">
                 Bilel Bourgou
               </h1>
-            </div>
-            <button className="rounded-full md:h-9 md:w-9  bg-violet-700 p-3  items-center justify-center absolute md:bottom-[50%] md:left-[97%] ">
+            <button
+              onClick={() => handleUpdateCoverPicClick()}
+              className="rounded-full md:h-9 md:w-9  bg-violet-700 p-3  items-center justify-center absolute md:bottom-[70%] md:left-[97%] "
+            >
               <MdEdit className="text-white" />
             </button>
             <button
               onClick={() => {
                 navigate("/edit-profile");
               }}
-              className="bg-violet-700 p-2 text-white text-sm rounded-full flex gap-2 justify-center items-center absolute bottom-[0] left-[92%]"
+              className="bg-violet-700 p-2 text-white text-sm rounded-full flex gap-2 justify-center items-center absolute bottom-[10%] left-[92%]"
             >
               <MdEdit className="text-white w-6" />
               Edit profile
             </button>
+            </div>
           </div>
           <div className="text-gray-300 text-center md:w-[800px] md:mt-2 md:mx-auto  md:absolute md:bottom-[-55%] md:left-[23%]">
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maxime

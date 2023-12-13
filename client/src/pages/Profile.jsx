@@ -61,7 +61,7 @@ const Profile = () => {
 
   return (
     <main className="p-9">
-      <div className="relative block h-[500px] rounded-lg">
+      <div className="relative block h-[300px] rounded-lg">
         <div>
           <input
             type="file"
@@ -94,7 +94,7 @@ const Profile = () => {
               </h1>
             <button
               onClick={() => handleUpdateCoverPicClick()}
-              className="rounded-full md:h-9 md:w-9  bg-violet-700 p-3  items-center justify-center absolute md:bottom-[70%] md:left-[97%] "
+              className="rounded-full md:h-9 md:w-9  bg-violet-700 p-3  items-center justify-center absolute md:bottom-[50%] md:left-[97%] "
             >
               <MdEdit className="text-white" />
             </button>
@@ -102,7 +102,7 @@ const Profile = () => {
               onClick={() => {
                 navigate("/edit-profile");
               }}
-              className="bg-violet-700 p-2 text-white text-sm rounded-full flex gap-2 justify-center items-center absolute bottom-[10%] left-[92%]"
+              className="bg-violet-700 p-2 text-white text-sm rounded-full flex gap-2 justify-center items-center absolute bottom-[0] left-[92%]"
             >
               <MdEdit className="text-white w-6" />
               Edit profile

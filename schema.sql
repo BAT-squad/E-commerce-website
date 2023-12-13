@@ -24,10 +24,12 @@ CREATE TABLE IF NOT EXISTS `ecommerce`.`users` (
   `userID` INT NOT NULL AUTO_INCREMENT,
   `email` VARCHAR(45) NOT NULL,
   `userName` VARCHAR(45) NOT NULL,
-  `birthday` DATE NOT NULL,
-  `password` VARCHAR(45) NOT NULL,
+  `birthday` DATE  NULL,
+  `password` VARCHAR(200) NOT NULL,
   `coverUrl` VARCHAR(450) NULL,
   `bio` VARCHAR(255) NULL,
+  `profilePicture` VARCHAR(450) NULL,
+
   PRIMARY KEY (`userID`),
   UNIQUE INDEX `email_UNIQUE` (`email` ASC) VISIBLE)
 ENGINE = InnoDB;

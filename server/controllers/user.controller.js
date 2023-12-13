@@ -1,4 +1,5 @@
 const userModel = require('../models/user.model.js');
+const bcrypt = require("bcryptjs")
 
 const updateUserController = (req, res) => {
     const userId = req.params.id; 
@@ -28,5 +29,13 @@ const updateUserCoverPicController = (req, res) => {
 
 module.exports = {
     updateUserController,
-    updateUserCoverPicController
+    updateUserCoverPicController,
+    addUser: function(req,res){
+        const salt = bcrypt.genSaltSync(10)
+        const hash = bcrypt.hashSync(req.body.password, salt)
+        userModel.addUser(req.body.email,req.body.userName,req.body.birthday,hash,req.body.coverUrl,req.body.bio,req.body.profilePicture,function(error,results){
+            if(error) console.log(error)
+           else res.json("added")
+        })
+    }
 };

@@ -8,6 +8,7 @@ import SignUp from "./pages/SignUp.jsx"
 import Profile from "./pages/Profile.jsx"
 import AdminDashboard from "./pages/AdminDashboard.jsx"
 import About from "./pages/About.jsx"
+import Basket from "./pages/Basket.jsx"
 import "./index.css";
 
 const router = createBrowserRouter([
@@ -71,6 +72,15 @@ const router = createBrowserRouter([
       <div>
         <Header />
         <About/>
+      </div>
+    )
+  },
+  {
+    path: "/basket",
+    element: (
+      <div>
+        <Header />
+        <Basket/>
       </div>
     )
   },

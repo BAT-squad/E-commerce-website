@@ -1,7 +1,9 @@
-const getAllProductsM = require('../models/products.models.js')
+
+const { getAllProductsM, postproductsM } = require('../models/products.models.js')
 
 
-const getAllProductsC = (req,res) => {
+
+const getAllProductsC = (req, res) => {
     getAllProductsM((err, results) => {
         if (err) {
             console.error(err, "Error fetching products")
@@ -10,4 +12,19 @@ const getAllProductsC = (req,res) => {
         }
     })
 }
-module.exports = getAllProductsC
+const postproductsC = (req, res) => {
+    const productData = req.body;  
+    postproductsM(productData, (err, results) => {
+      if (err) {
+        console.error(err, "Error posting products");
+        res.status(500).json('Error posting products');
+      } else {
+        res.json(results);
+      }
+    });
+  };
+  
+
+
+
+module.exports = { getAllProductsC, postproductsC }

@@ -9,7 +9,7 @@ const Footer = () => {
     };
 
     return (
-        <footer className="border-t border-gray-300 py-6 bg-opacity-50">
+        <footer className=" py-6 bg-opacity-50">
             <div className="container mx-auto flex flex-wrap justify-between">
                 <div className="w-full md:w-1/2 lg:w-1/4 mb-8 md:mb-0">
                     <Link to="/" className="text-xl font-bold mb-2">B.A.T-squad</Link>
@@ -56,7 +56,7 @@ const Footer = () => {
                 <div className="w-full lg:w-1/4 text-gray-600">
                     <p className="hidden lg:block">&copy; 2023 All rights reserved.</p>
                     <div className="mt-2">
-                        <p>Made by <span className="text-red-500">♥</span></p>
+                        <p>Made by <span className="text-white-500">♥ Wael Bilel Amine & khalil</span></p>
                     </div>
                 </div>
             </div>

@@ -4,6 +4,7 @@ import Facebook from "./login/continue/facebook";
 import Google from "./login/continue/google";
 import Apple from "./login/continue/apple";
 import { FaEyeSlash } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   const [view, setView] = useState(false);
@@ -44,7 +45,7 @@ const Login = () => {
             <div>
               <div className="mt-10 ml-8">
                 <p className="inline text-white">New user? </p>
-                <p className="inline text-mauve">Create an account</p>
+                <p className="inline text-mauve"><Link to= "/signup">Create an account</Link></p>
               </div>
               <div className="ml-8 mt-10">
                 <input

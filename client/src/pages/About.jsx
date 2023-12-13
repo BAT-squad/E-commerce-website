@@ -30,7 +30,7 @@ const About = () => {
           </p>
         )}
         <button
-          className="text-purple-500"
+          className="text-white-500 bg-violet-600 rounded-full  p-2"
           onClick={handleShowMoreWhoWeAre}
         >
           {showMoreWhoWeAre ? 'Show Less' : 'Show More'}
@@ -55,7 +55,7 @@ const About = () => {
               </p>
             )}
             <button
-              className="text-purple-500"
+              className="text-white-500 bg-violet-600 rounded-full  p-2"
               onClick={handleShowMoreWhatWeDo}
             >
               {showMoreWhatWeDo ? 'Show Less' : 'Show More'}

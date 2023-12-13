@@ -8,7 +8,8 @@ export default {
         "mauve": "#6C5DD3",
         "input": "#a0a8ac",
         "continue": "#a34cf8",
-        "facebook": "#1877F2"
+        "facebook": "#1877F2",
+        "placeholder": "#a9a9a9"
       }
     },
   },

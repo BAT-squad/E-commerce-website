@@ -11,11 +11,11 @@ const Login = () => {
       <div className="w-[90%] h-[550px] absolute top-[12%] left-[10%]">
         <div className="">
           <img
-            src={image}
+            src="https://s3-alpha-sig.figma.com/img/a59c/1e4a/905494d13b92596161da408b21648aa6?Expires=1703462400&Signature=ph1rrOffokpkaiR4HZ8Oto0UR8ExmYlJNwE~n8GUBRj-dY0aM872pO9HOO4OCQnL4pjzj7-RoUDXKjGa7hWNRtLRnl~inYgsjE3UixIJ0E4civNZdYCfEJVVfvQj7Z~mQsUjNH-PPlJfmaNKrQpUdGbqpbn9uUbbIRsTmaQ9HpeoOSOUyUagyWLHVO4IQroHJYpaK5NslbdGnQ8M734dDOkkR3PMRlhLvDaRQXMr311xZlau86vMV2sGUbDz~1~41C~32b0fi-a~OfsdC0UhuhoZH8ZR4xRsUElxBAQI7gmQ1fJYzPJGQ4FWHm6HgwgZRgrIGUWW2VRxT5OSIW6-CA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
             alt=""
-            className="w-[20%] h-[400px] absolute left-[5%]"
+            className="w-[25%] h-[400px] absolute left-[5%]"
           />
-          <p className="absolute font-sans font-semibold text-xl text-center w-[30%] h-[39px] top-[420px]  text-white">
+          <p className="absolute font-sans font-semibold text-xl text-center w-[30%] h-[39px] top-[420px] left-[5%] text-white">
             Explore the world of meta fashion
           </p>
         </div>

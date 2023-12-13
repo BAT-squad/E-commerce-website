@@ -2,7 +2,15 @@
 export default {
   content: ["./index.html", "./src/**/*.{js,jsx}"],
   theme: {
-    extend: {},
+    extend: {
+      colors:{
+        "login" : "#484c64",
+        "mauve": "#6C5DD3",
+        "input": "#a0a8ac",
+        "continue": "#a34cf8",
+        "facebook": "#1877F2"
+      }
+    },
   },
   plugins: [],
 }

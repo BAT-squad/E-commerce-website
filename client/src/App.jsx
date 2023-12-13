@@ -8,7 +8,9 @@ import SignUp from "./pages/SignUp.jsx"
 import Profile from "./pages/Profile.jsx"
 import AdminDashboard from "./pages/AdminDashboard.jsx"
 import About from "./pages/About.jsx"
+import Basket from "./pages/Basket.jsx"
 import "./index.css";
+import Footer from "./components/Footer.jsx";
 
 const router = createBrowserRouter([
   {
@@ -17,6 +19,7 @@ const router = createBrowserRouter([
       <div>
         <Header />
         <Home />
+        <Footer/>
       </div>
     ),
   },
@@ -26,6 +29,7 @@ const router = createBrowserRouter([
       <div>
         <Header />
         <AllProducts />
+        <Footer/>
       </div>
     ),
   },
@@ -53,6 +57,7 @@ const router = createBrowserRouter([
       <div>
         <Header />
         <Profile />
+        <Footer/>
       </div>
     )
   },
@@ -62,6 +67,7 @@ const router = createBrowserRouter([
       <div>
         <Header />
         <AdminDashboard />
+        <Footer/>
       </div>
     )
   },
@@ -71,6 +77,16 @@ const router = createBrowserRouter([
       <div>
         <Header />
         <About/>
+        <Footer/>
+      </div>
+    )
+  },
+  {
+    path: "/basket",
+    element: (
+      <div>
+        <Header />
+        <Basket/>
       </div>
     )
   },

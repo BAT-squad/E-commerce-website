@@ -60,7 +60,6 @@ const Home = () => {
             placeholder="what is in your mind                                                                        +"
           />
         </div>
-
         <div className="  flex flex-col flex-1 justify-center items-center">
           <input
             type="text"

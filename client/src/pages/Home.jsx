@@ -83,7 +83,7 @@ const Home = () => {
         <h1 className="text-3xl text-white font-bold mb-10">
           Highest Quality Collection
         </h1>
-        <button className="text-white bg-gray-300 font-bold pl-6  pr-6 p-2 mt-4 rounded-full text-white ">
+        <button className="text-white bg-gray-300 font-bold pl-6  pr-6 p-2 mt-4 rounded-full  ">
           Get Started
         </button>
       </div>

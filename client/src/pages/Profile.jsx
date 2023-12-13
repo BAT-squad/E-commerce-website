@@ -11,11 +11,12 @@ import {
 } from "firebase/storage";
 import { app } from "../firebase.js";
 
+
 const Profile = () => {
   const navigate = useNavigate("/edit-profile");
   const coverPicRef = useRef(null);
   const profilePicRef = useRef(null);
-  const [coverPic, setCoverPic] = useState(null);
+  const [coverPic, setCoverPic] = useState("");
   const [profilePic, setProfilePic] = useState(null);
 
   const uploadCoverPic = (file) => {
@@ -26,7 +27,8 @@ const Profile = () => {
     uploadTask.on(
       "state_changed",
       (snapshot) => {
-        const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+        const progress =
+          (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
         console.log(`Upload is ${progress}% done`);
       },
       (error) => {
@@ -39,15 +41,15 @@ const Profile = () => {
         });
       }
     );
-  
-  }
+  };
 
   const handleCoverPicChange = (e) => {
-    const file = e.target.files[0]
-    if(file){
-      uploadCoverPic(file)
+    const file = e.target.files[0];
+    if (file) {
+      uploadCoverPic(file);
     }
-  }
+  };
+
   return (
     <main className="p-9">
       <div className="relative block h-[300px] rounded-lg">
@@ -57,7 +59,7 @@ const Profile = () => {
             className="hidden"
             id="coverUrl"
             ref={coverPicRef}
-            onChange={ handleCoverPicChange}
+            onChange={handleCoverPicChange}
           />
           <img
             onClick={() => coverPicRef.current.click()}
@@ -79,9 +81,7 @@ const Profile = () => {
                 Bilel Bourgou
               </h1>
             </div>
-            <button 
-            onClick={uploadCoverPic}
-            className="rounded-full md:h-9 md:w-9  bg-violet-700 p-3  items-center justify-center absolute md:bottom-[50%] md:left-[97%] ">
+            <button className="rounded-full md:h-9 md:w-9  bg-violet-700 p-3  items-center justify-center absolute md:bottom-[50%] md:left-[97%] ">
               <MdEdit className="text-white" />
             </button>
             <button

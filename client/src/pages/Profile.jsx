@@ -2,7 +2,10 @@ import React from "react";
 import { FaCamera } from "react-icons/fa";
 import { MdEdit } from "react-icons/md";
 import Posts from "../components/Posts.jsx";
+import { useNavigate } from "react-router-dom";
+
 const Profile = () => {
+  const navigate = useNavigate("/edit-profile");
   return (
     <main className="p-9">
       <div className="relative block h-[300px] rounded-lg">
@@ -29,12 +32,17 @@ const Profile = () => {
             <button className="rounded-full md:h-9 md:w-9  bg-violet-700 p-3  items-center justify-center absolute md:bottom-[50%] md:left-[97%] ">
               <MdEdit className="text-white" />
             </button>
-            <button className="bg-violet-700 p-2 text-white text-sm rounded-full flex gap-2 justify-center items-center absolute bottom-[0] left-[92%]">
+            <button
+              onClick={() => {
+                navigate("/edit-profile");
+              }}
+              className="bg-violet-700 p-2 text-white text-sm rounded-full flex gap-2 justify-center items-center absolute bottom-[0] left-[92%]"
+            >
               <MdEdit className="text-white w-6" />
               Edit profile
             </button>
           </div>
-          <div className="text-gray-300 text-center md:w-[800px] md:mt-2 md:mx-auto  md:absolute md:bottom-[-55%] md:left-[28%]">
+          <div className="text-gray-300 text-center md:w-[800px] md:mt-2 md:mx-auto  md:absolute md:bottom-[-55%] md:left-[23%]">
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maxime
             facere unde minus omnis debitis culpa excepturi vel laborum ea
             fugiat ipsam quidem consequuntur, voluptatem a quasi provident
@@ -42,7 +50,7 @@ const Profile = () => {
           </div>
         </div>
       </div>
-      <Posts/>
+      <Posts />
     </main>
   );
 };

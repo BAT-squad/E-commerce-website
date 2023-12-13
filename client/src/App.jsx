@@ -11,6 +11,7 @@ import About from "./pages/About.jsx"
 import Basket from "./pages/Basket.jsx"
 import "./index.css";
 import Footer from "./components/Footer.jsx";
+import EditProfile from "./pages/EditProfile.jsx";
 
 const router = createBrowserRouter([
   {
@@ -57,6 +58,16 @@ const router = createBrowserRouter([
       <div>
         <Header />
         <Profile />
+        <Footer/>
+      </div>
+    )
+  },
+  {
+    path: "/edit-profile",
+    element: (
+      <div>
+        <Header />
+        <EditProfile />
         <Footer/>
       </div>
     )

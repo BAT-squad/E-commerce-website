@@ -4,6 +4,7 @@ const db = require('./models/index.js')
 const userRoute = require('./routes/user.route.js')
 const getproducts = require('./routes/products.home.router.js')
 const app = express()
+const productrouter = require('./routes/products.router.js')
 
 const PORT = 5001
 

@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import image from "./login/anime.png";
 import Facebook from "./login/continue/facebook";
 import Google from "./login/continue/google";
 import Apple from "./login/continue/apple";
+import { FaEyeSlash } from "react-icons/fa6";
 
 const Login = () => {
+  const [view, setView] = useState(false);
   return (
-    <div >
+    <div>
       <p className="text-transparent">.</p>
       <div className="w-[90%] h-[550px] absolute top-[12%] left-[10%]">
         <div className="">
@@ -20,19 +22,45 @@ const Login = () => {
           </p>
         </div>
         <div className="w-[30%] h-[500px] absolute left-[40%] rounded-lg bg-login sm:float-left ">
-          <h1 className="font-bold leading-10 tracking-tighter text-center text-lg mr-64 mt-4 text-white">Sign in</h1>
-          <div className="mt-10 ml-8">
-            <p className="inline text-white">New user? </p>
-            <p className="inline text-mauve">Create an account</p>
-          </div>
-          <div className="ml-8 mt-10">
-            <input
-              type="text"
-              className="bg-transparent border-b-[1px] border-input text-white w-11/12"
-              placeholder="Email Adress"
-            />
-            <button className="bg-continue text-white p-[1px] px-4 rounded-2xl float-right mt-2 mr-5">Continue</button>
-          </div>
+          <h1 className="font-bold leading-10 tracking-tighter text-center text-lg mr-64 mt-4 text-white">
+            Sign in
+          </h1>
+          {view && (
+            <div>
+              <input
+                type="password"
+                className="bg-transparent left-8  top-[20px] border-b-[1px] absolute inline border-input placeholder:text-white mt-12 text-white w-10/12"
+                placeholder="password"
+              />
+              <FaEyeSlash className=" absolute top-[78px] left-[88%] text-white" />
+              <button
+                className="bg-continue text-white p-[1px] px-4 rounded-2xl float-right mt-14 mr-5"
+              >
+                Login
+              </button>
+            </div>
+          )}
+          {!view && (
+            <div>
+              <div className="mt-10 ml-8">
+                <p className="inline text-white">New user? </p>
+                <p className="inline text-mauve">Create an account</p>
+              </div>
+              <div className="ml-8 mt-10">
+                <input
+                  type="text"
+                  className="bg-transparent border-b-[1px] border-input text-white w-11/12"
+                  placeholder="Email Adress"
+                />
+                <button
+                  onClick={() => setView(!view)}
+                  className="bg-continue text-white p-[1px] px-4 rounded-2xl float-right mt-2 mr-5"
+                >
+                  Continue
+                </button>
+              </div>
+            </div>
+          )}
           <div className="mt-16">
             <p className="text-white text-center">Or</p>
           </div>
@@ -41,6 +69,14 @@ const Login = () => {
             <Facebook />
             <Apple />
           </div>
+          {view && (
+            <button
+              onClick={() => setView(!view)}
+              className="bg-continue text-white p-[1px] px-4 rounded-2xl float-right mt-2 mr-5"
+            >
+              GO BACK
+            </button>
+          )}
         </div>
       </div>
     </div>

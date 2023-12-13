@@ -9,8 +9,12 @@ const PORT = 5001
 app.use(express.json())
 app.use(cors())
 
-const getall = require('./routes/allproductR.js')
-app.use("/api",getall)
+
+
+
+const getproducts = require('./routes/products.route.js')
+app.use('/api',getproducts)
+
 
 
 

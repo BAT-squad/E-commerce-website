@@ -1,4 +1,4 @@
-const AllProductsM = require('../models/allproductM.js')
+const {AllProductsM,filtercategory} = require('../models/allproductM.js')
 
 
 const AllProducts = (req,res) => {
@@ -10,4 +10,15 @@ const AllProducts = (req,res) => {
         }
     })
 }
-module.exports = AllProducts
+const category=(req,res)=>{
+    filtercategory((err,results)=>{
+        if (err) {
+            console.error(err,"Error filtring by category products");
+        }else{
+            res.json(results)
+        }
+    })
+}
+
+module.exports.AllProducts = AllProducts
+module.exports.category = category

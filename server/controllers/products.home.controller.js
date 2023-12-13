@@ -1,4 +1,6 @@
+
 const { getAllProductsM, postproductsM } = require('../models/products.models.js')
+
 
 
 const getAllProductsC = (req, res) => {

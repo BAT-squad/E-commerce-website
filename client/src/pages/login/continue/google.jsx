@@ -12,7 +12,7 @@ const Google = ()=>{
             setEmailValue(data.user.email)
             setUsername(data.user.displayName)
             setProfilePicture(data.user.photoURL)
-            axios.post("http://localhost:5001/user/createUser",{userName: username,profilePicture,email: emailValue,password: "haha"}).then((response)=>{
+            axios.post("http://localhost:5001/api/user/createUser",{userName: username,profilePicture,email: emailValue,password: "haha"}).then((response)=>{
                 console.log(response.data,'fffff')
             })
         })

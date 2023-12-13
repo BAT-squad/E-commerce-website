@@ -1,5 +1,5 @@
 
-const { getAllProductsM, postproductsM } = require('../models/products.models.js')
+const { getAllProductsM, postproductsM, getOneProduct} = require('../models/products.models.js')
 
 
 
@@ -24,7 +24,17 @@ const postproductsC = (req, res) => {
     });
   };
   
+const getOneProductC = (req, res) => {
+  const id = req.params.id;
+  getOneProduct(id, (err, results) => {
+    if (err) {
+      console.error(err, "Error fetching products");
+      res.status(500).json('Error fetching products');
+    } else {
+      res.json(results);
+    }
+  });
+}
 
 
-
-module.exports = { getAllProductsC, postproductsC }
+module.exports = { getAllProductsC, postproductsC, getOneProductC }

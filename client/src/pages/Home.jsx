@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { SiNike, SiAdidas, SiPuma } from "react-icons/si";
 import { FaCopyright } from "react-icons/fa";
 import { FaHandHoldingDollar, FaArrowRightArrowLeft } from "react-icons/fa6";
+import Products from "../components/products.jsx"
 const Home = () => {
   const navigate = useNavigate();
 
@@ -38,6 +39,7 @@ const Home = () => {
         <FaCopyright className="w-10 h-10 text-violet-500" />
         <FaArrowRightArrowLeft className="w-10 h-10 text-violet-500" />
       </div>
+        <Products/>
       <div className="justify-center text-white text-[50px] mt-10">
         Freaquently Asked Question
         <h1 className=" text-gray-500 text-[16px]">Wanna Ask Something?</h1>

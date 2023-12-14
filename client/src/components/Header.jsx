@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 const Header = () => {
   return (
     <header className="bg-transparent">
+      
       <div className="flex justify-between items-center max-w-6xl mx-auto p-3">
         <h1 className="font-bold text-violet-700 text-sm sm:text-xl flex flex-wrap cursor-pointer">
           .SHOP

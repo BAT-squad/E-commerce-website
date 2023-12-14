@@ -28,9 +28,23 @@ const updateUserCoverPic = (id,newCoverPic,callback)=>{
     })
 }
 
+const updateUserProfilePic = (id,newProfilePic,callback)=>{
+    const query = 'UPDATE users SET profilePicture =? WHERE userID =?'
+    const values = [newProfilePic,id]
+    db.query(query, values, (err, result) => {
+        if (err) {
+            console.error('Database error:', err);
+            callback(err, null);
+        } else {
+            callback(null, result);
+        }
+    })
+}
+
 module.exports = {
     updateUser,
     updateUserCoverPic,
+    updateUserProfilePic,
     addUser: function(email,userName,birthday,password,coverUrl,bio,profilePicture,callback){
         const sql = `insert into users (email,userName,birthday,password,coverUrl,bio,profilePicture) values(?,?,?,?,?,?,?)`
         db.query(sql,[email,userName,birthday,password,coverUrl,bio,profilePicture],function(error,results){

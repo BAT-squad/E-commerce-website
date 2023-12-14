@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { FaCamera } from "react-icons/fa";
 import { MdEdit } from "react-icons/md";
 import Posts from "../components/Posts.jsx";
@@ -13,11 +13,28 @@ import { app } from "../firebase.js";
 import axios from "axios";
 
 const Profile = () => {
+  const currentUser = JSON.parse(localStorage.getItem("currentUser"));
   const navigate = useNavigate("/edit-profile");
   const coverPicRef = useRef(null);
   const profilePicRef = useRef(null);
   const [coverPic, setCoverPic] = useState("");
-  const [profilePic, setProfilePic] = useState(null);
+  const [profilePic, setProfilePic] = useState("");
+
+  useEffect(() => {
+    console.log('d')
+    axios
+      .get(`http://localhost:5001/api/user/get/${currentUser.email}`)
+      .then((res) => {
+        console.log(res.data,'fffffff');
+        const currentUserData = JSON.stringify(res.data[0]);
+        console.log(currentUserData)
+        localStorage.setItem("currentUser", currentUserData);
+        console.log(currentUser);
+      })
+      .catch((error) => {
+        console.error("Error fetching user data:", error);
+      });
+  }, []);
 
   const uploadCoverPic = (file) => {
     const storage = getStorage(app);
@@ -52,7 +69,7 @@ const Profile = () => {
 
   const handleUpdateCoverPicClick = () => {
     axios
-      .put("http://localhost:5001/api/user/update/cover-pic/1", {
+      .put(`http://localhost:5001/api/user/update/cover-pic/${currentUser.userID}`, {
         coverUrl: coverPic,
       })
       .then((res) => console.log(res))
@@ -91,12 +108,14 @@ const Profile = () => {
   };
 
   const handleUpdateProfilePicClick = () => {
+
     axios
-      .put("http://localhost:5001/api/user/update/profile-pic/1", {
+      .put(`http://localhost:5001/api/user/update/profile-pic/${currentUser.userID}`, {
         coverUrl: coverPic,
       })
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
+
   };
 
   return (
@@ -144,7 +163,7 @@ const Profile = () => {
                 <FaCamera className="text-white h-3" />
               </button>
               <h1 className="text-white text-center text-xl mt-5 whitespace-nowrap font-semibold">
-                Bilel Bourgou
+                {currentUser.userName}
               </h1>
               <button
                 onClick={() => handleUpdateCoverPicClick()}

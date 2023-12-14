@@ -28,7 +28,23 @@ const getOneProduct = (id,callback)=>{
 
 }
 
+const filterCategory = (category, callback) => {
+  const query = "SELECT * FROM products WHERE category=?";
+  return connection.query(query, [category], callback);
+};
 
 
-module.exports = { getAllProductsM, postproductsM , getOneProduct}
+const filterPrice=(minPrice,maxPrice,callback)=>{
+  const query="SELECT * FROM products WHERE price >=? AND price<=?"
+  return connection.query(query,[minPrice,maxPrice],callback)
+}
+
+const filterbrand=(brand,callback)=>{
+  const query=`SELECT * FROM ecommerce.products inner join ecommerce.brands on ecommerce.products.brands_brandID=ecommerce.brands.brandID where brandName=?;`
+  return connection.query(query,[brand],callback)
+}
+
+
+
+module.exports = { getAllProductsM, postproductsM ,filterCategory,filterPrice,filterbrand ,getOneProduct}
 

@@ -10,6 +10,7 @@ const Footer = () => {
 
     return (
         <footer className=" py-6 bg-opacity-50">
+            
             {/* <hr/> */}
             <div className="container mx-auto flex flex-wrap justify-between">
                 <div className="w-full md:w-1/2 lg:w-1/4 mb-8 md:mb-0">

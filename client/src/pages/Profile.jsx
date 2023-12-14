@@ -97,7 +97,7 @@ const Profile = () => {
         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
           console.log("File available at", downloadURL);
           setProfilePic(downloadURL);
-          currentUser.profilePicture = profilePic
+          currentUser.profilePicture = profilePic;
           localStorage.setItem("currentUser", JSON.stringify(currentUser));
         });
       }

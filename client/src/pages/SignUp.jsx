@@ -1,8 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import image from "./login/anime.png";
 import { FaEyeSlash } from "react-icons/fa6";
+import axios from "axios";
 
 const SignUp = () => {
+    const[email,setEmail] = useState("")
+    const[firstName,setFirstName] = useState("")
+    const[LastName,setLastName] = useState("")
+    const[password,setPassword] = useState("")
+    const[month, setMonth] = useState("")
+    const[year,setYear] = useState("")
+    const[day,setDay] = useState("")
+
+    const handlePost = ()=>{
+      let username = firstName + LastName
+      let date = year+month+day
+      console.log(username, date)
+      axios.post("http://localhost:5001/api/user/createUser",{email,userName: username ,password, date}).then((response)=>{
+        console.log(response)
+      })
+    }
+
+    
   return (
     <div>
       <p className="text-transparent">.</p>
@@ -27,17 +46,20 @@ const SignUp = () => {
               type="text"
               className="bg-transparent border-b-[1px] border-input placeholder:text-white text-white w-11/12"
               placeholder="Email Adress"
+              onChange={e=>setEmail(e.target.value)}
             />
             <div className="mt-12">
               <input
                 type="text"
                 className="bg-transparent border-b-[1px] border-input placeholder:text-white text-white w-5/12"
-                placeholder="Full Name"
+                placeholder="First Name"
+                onChange={e=>setFirstName(e.target.value)}
               />
               <input
                 type="text"
                 className="bg-transparent border-b-[1px] border-input ml-4 placeholder:text-white text-white w-[46%]"
                 placeholder="Last Name"
+                onChange={e=>setLastName(e.target.value)}
               />
             </div>
             <div className=" inline">
@@ -45,6 +67,7 @@ const SignUp = () => {
                 type="password"
                 className="bg-transparent border-b-[1px] absolute inline border-input placeholder:text-white mt-12 text-white w-10/12"
                 placeholder="password"
+                onChange={e=>setPassword(e.target.value)}
               />
               <FaEyeSlash className=" absolute top-[15.5rem] left-[88%] text-white" />
             </div>
@@ -58,7 +81,8 @@ const SignUp = () => {
 
               <select
                 className="bg-transparent border-b-[1px]    inline text-placeholder border-input  p-2 w-12/12"
-                defaultValue="" 
+                defaultValue=""
+                onChange={e=>setMonth(e.target.value)} 
               >
                 <option value="0"  className="text-white">
                   Month
@@ -81,14 +105,16 @@ const SignUp = () => {
               type="text"
               className=" top-[-18px] ml-[103%] bg-transparent border-b-[1px] absolute inline border-input mt-12 text-white w-7/12"
               placeholder="Day"
+              onChange={e=>setDay(e.target.value)}
             />
             <input
               type="text"
               className=" top-[-18px] ml-[175%]   w-7/12 bg-transparent border-b-[1px] absolute inline border-input text-white mt-12 "
               placeholder="Year"
+              onChange={e=>setYear(e.target.value)}
             />
           </div>
-          <button className="bg-continue text-white p-[1px] px-4 rounded-2xl float-right mt-64 mr-5 ">Create Account</button>
+          <button onClick={handlePost}  className="bg-continue text-white p-[1px] px-4 rounded-2xl float-right mt-64 mr-5 " >Create Account</button>
         </div>
       </div>
     </div>

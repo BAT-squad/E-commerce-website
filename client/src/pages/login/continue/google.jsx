@@ -3,12 +3,16 @@ import  {googleProvider,auth} from "../../../firebase"
 import   {signInWithPopup} from "firebase/auth"
 import axios from "axios";
 import { useState } from "react";
+import {useNavigate} from "react-router-dom"
 const Google = ()=>{
     const [emailValue, setEmailValue] = useState("")
     const[profilePicture,setProfilePicture]= useState("")
     const[username,setUsername] = useState("")
+    const navigate = useNavigate()
     const handleClick = ()=>{
+        
         signInWithPopup(auth,googleProvider).then((data)=>{
+            
             setEmailValue(data.user.email)
             setUsername(data.user.displayName)
             setProfilePicture(data.user.photoURL)
@@ -22,6 +26,7 @@ const Google = ()=>{
               }));
               var storedData = JSON.parse(localStorage.getItem("currentUser"));
             console.log(data.user)
+            navigate("/")
         })
 
     }

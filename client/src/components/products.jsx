@@ -16,27 +16,6 @@ const Products = () => {
       .catch(error => {
         console.error('Error fetching data:', error);
       });
-    
-    // const sampleData = [
-    //   {
-    //     productID: 1,
-    //     productName: "air max",
-    //     price: 29.99,
-    //     category: "basket",
-    //     like: false,
-    //     imageUrl: "https://tse3.mm.bing.net/th?id=OIP.P42zfFvhtmXEFyNdZCmBsQHaFN&pid=Api&P=0&h=220",
-    //   },
-    //   {
-    //     productID: 2,
-    //     productName: "nike jordan",
-    //     price: 39.99,
-    //     category: "usb",
-    //     like: false,
-    //     imageUrl: "https://sportshouse11.files.wordpress.com/2012/03/image-of-the-nike-shoes.jpg",
-    //   },
-
-    // ];
-
     setProducts(products);
   }, []);
    const handleBuyNow = (productID) => {

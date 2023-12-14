@@ -40,6 +40,7 @@ const Profile = () => {
         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
           console.log("File available at", downloadURL);
           setCoverPic(downloadURL);
+        
         });
       }
     );
@@ -79,7 +80,10 @@ const Profile = () => {
       () => {
         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
           console.log("File available at", downloadURL);
-          setProfilePic(downloadURL);
+          setProfilePic(downloadURL)
+          currentUser.profilePicture = downloadURL;
+          localStorage.setItem("currentUser", JSON.stringify(currentUser));
+          
         });
       }
     );

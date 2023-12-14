@@ -13,11 +13,13 @@ import { app } from "../firebase.js";
 import axios from "axios";
 
 const Profile = () => {
+  const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+  console.log(currentUser);
   const navigate = useNavigate("/edit-profile");
   const coverPicRef = useRef(null);
   const profilePicRef = useRef(null);
   const [coverPic, setCoverPic] = useState("");
-  const [profilePic, setProfilePic] = useState(null);
+  const [profilePic, setProfilePic] = useState(currentUser.profilePicture);
 
   const uploadCoverPic = (file) => {
     const storage = getStorage(app);

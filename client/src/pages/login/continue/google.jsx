@@ -15,6 +15,10 @@ const Google = ()=>{
             axios.post("http://localhost:5001/api/user/createUser",{userName: username,profilePicture,email: emailValue,password: "haha"}).then((response)=>{
                 console.log(response.data,'fffff')
             })
+            localStorage.setItem("email", data.user.email)
+            localStorage.setItem("profilePicture", data.user.photoURL)
+            localStorage.setItem("username", data.user.displayName)
+            console.log(data.user)
         })
 
     }

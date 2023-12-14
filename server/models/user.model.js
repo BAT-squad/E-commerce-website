@@ -60,7 +60,7 @@ module.exports = {
     updateUserProfilePic,
     addUser: function (email, userName, birthday, password, coverUrl, bio, profilePicture, callback) {
         const sql = `insert into users (email,userName,birthday,password,coverUrl,bio,profilePicture) values(?,?,?,?,?,?,?)`
-        db.query(sql, [email, userName, birthday, password, coverUrl, bio, profilePicture], function (error, results) {
+        db.query(sql, [email, userName, birthday, password, 'https://trusteid.mioa.gov.mk/wp-content/plugins/uix-page-builder/uixpb_templates/images/UixPageBuilderTmpl/default-cover-4.jpg', bio, "https://png.pngtree.com/element_our/20200610/ourmid/pngtree-character-default-avatar-image_2237203.jpg"], function (error, results) {
             callback(error, results)
         })
     }

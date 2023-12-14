@@ -19,6 +19,7 @@ USE `ecommerce` ;
 
 -- -----------------------------------------------------
 -- Table `ecommerce`.`users`
+
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `ecommerce`.`users` (
   `userID` INT NOT NULL AUTO_INCREMENT,

@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import axios from "axios";
+import {useNavigate} from "react-router-dom"
+
 const EditProfile = () => {
 
+  const navigate = useNavigate() 
   const [formData,setFormData] = useState({})
 
 
@@ -14,7 +17,10 @@ const EditProfile = () => {
     e.preventDefault();
     axios
     .put("http://localhost:5001/api/user/update/1", formData)
-    .then((res) => console.log(res))
+    .then((res) => {
+      console.log(res)
+      navigate('/profile')
+    })
     .catch((err) => console.log(err));
   }
 
@@ -59,7 +65,8 @@ const EditProfile = () => {
           onChange={handleChange}
         ></textarea>
 
-        <button className="p-3 rounded-full bg-violet-500 text-white uppercase">
+        <button 
+        className="p-3 rounded-full bg-violet-500 text-white uppercase">
           Update
         </button>
       </form>

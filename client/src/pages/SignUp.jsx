@@ -79,12 +79,12 @@ const SignUp = () => {
             </div>
             <input
               type="text"
-              className=" top-[-18px] ml-32 bg-transparent border-b-[1px] absolute inline border-input mt-12 text-white w-7/12"
+              className=" top-[-18px] ml-[103%] bg-transparent border-b-[1px] absolute inline border-input mt-12 text-white w-7/12"
               placeholder="Day"
             />
             <input
               type="text"
-              className=" top-[-18px] ml-[230px]   w-7/12 bg-transparent border-b-[1px] absolute inline border-input text-white mt-12 "
+              className=" top-[-18px] ml-[175%]   w-7/12 bg-transparent border-b-[1px] absolute inline border-input text-white mt-12 "
               placeholder="Year"
             />
           </div>

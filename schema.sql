@@ -43,7 +43,10 @@ CREATE TABLE IF NOT EXISTS `ecommerce`.`brands` (
   `brandName` VARCHAR(45) NOT NULL,
   `imageUrl` VARCHAR(450) NOT NULL,
   PRIMARY KEY (`brandID`))
-ENGINE = InnoDB;
+ENGINE = InnoDB
+AUTO_INCREMENT = 2
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
 
 
 -- -----------------------------------------------------
@@ -57,32 +60,56 @@ CREATE TABLE IF NOT EXISTS `ecommerce`.`products` (
   `like` TINYINT NOT NULL,
   `imageUrl` VARCHAR(450) NOT NULL,
   `brands_brandID` INT NOT NULL,
-  `new` TINYINT NOT NULL DEFAULT 1,
+  `new` TINYINT NOT NULL DEFAULT '1',
   PRIMARY KEY (`productID`),
   INDEX `fk_products_brands1_idx` (`brands_brandID` ASC) VISIBLE,
   CONSTRAINT `fk_products_brands1`
     FOREIGN KEY (`brands_brandID`)
-    REFERENCES `ecommerce`.`brands` (`brandID`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+    REFERENCES `ecommerce`.`brands` (`brandID`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
 
 
 -- -----------------------------------------------------
--- Table `ecommerce`.`questions`
+-- Table `ecommerce`.`users`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `ecommerce`.`questions` (
-  `questionsID` INT NOT NULL AUTO_INCREMENT,
-  `questions` VARCHAR(455) NOT NULL,
+CREATE TABLE IF NOT EXISTS `ecommerce`.`users` (
+  `userID` INT NOT NULL AUTO_INCREMENT,
+  `email` VARCHAR(45) NOT NULL,
+  `userName` VARCHAR(45) NOT NULL,
+  `birthday` DATE NOT NULL,
+  `password` VARCHAR(45) NOT NULL,
+  `coverUrl` VARCHAR(450) NULL DEFAULT NULL,
+  `bio` VARCHAR(255) NULL DEFAULT NULL,
+  `profilePicUrl` VARCHAR(450) NULL,
+  PRIMARY KEY (`userID`),
+  UNIQUE INDEX `email_UNIQUE` (`email` ASC) VISIBLE)
+ENGINE = InnoDB
+AUTO_INCREMENT = 2
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
+-- Table `ecommerce`.`basket`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `ecommerce`.`basket` (
+  `basketID` INT NOT NULL AUTO_INCREMENT,
   `users_userID` INT NOT NULL,
-  PRIMARY KEY (`questionsID`),
-  INDEX `fk_questions_users1_idx` (`users_userID` ASC) VISIBLE,
-  CONSTRAINT `fk_questions_users1`
+  `products_productID` INT NOT NULL,
+  PRIMARY KEY (`basketID`),
+  INDEX `fk_table1_users_idx` (`users_userID` ASC) VISIBLE,
+  INDEX `fk_table1_products1_idx` (`products_productID` ASC) VISIBLE,
+  CONSTRAINT `fk_table1_products1`
+    FOREIGN KEY (`products_productID`)
+    REFERENCES `ecommerce`.`products` (`productID`),
+  CONSTRAINT `fk_table1_users`
     FOREIGN KEY (`users_userID`)
-    REFERENCES `ecommerce`.`users` (`userID`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+    REFERENCES `ecommerce`.`users` (`userID`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
 
 
 -- -----------------------------------------------------
@@ -97,33 +124,27 @@ CREATE TABLE IF NOT EXISTS `ecommerce`.`posts` (
   INDEX `fk_posts_users1_idx` (`users_userID` ASC) VISIBLE,
   CONSTRAINT `fk_posts_users1`
     FOREIGN KEY (`users_userID`)
-    REFERENCES `ecommerce`.`users` (`userID`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+    REFERENCES `ecommerce`.`users` (`userID`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
 
 
 -- -----------------------------------------------------
--- Table `ecommerce`.`basket`
+-- Table `ecommerce`.`questions`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `ecommerce`.`basket` (
-  `basketID` INT NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `ecommerce`.`questions` (
+  `questionsID` INT NOT NULL AUTO_INCREMENT,
+  `questions` VARCHAR(455) NOT NULL,
   `users_userID` INT NOT NULL,
-  `products_productID` INT NOT NULL,
-  PRIMARY KEY (`basketID`),
-  INDEX `fk_table1_users_idx` (`users_userID` ASC) VISIBLE,
-  INDEX `fk_table1_products1_idx` (`products_productID` ASC) VISIBLE,
-  CONSTRAINT `fk_table1_users`
+  PRIMARY KEY (`questionsID`),
+  INDEX `fk_questions_users1_idx` (`users_userID` ASC) VISIBLE,
+  CONSTRAINT `fk_questions_users1`
     FOREIGN KEY (`users_userID`)
-    REFERENCES `ecommerce`.`users` (`userID`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_table1_products1`
-    FOREIGN KEY (`products_productID`)
-    REFERENCES `ecommerce`.`products` (`productID`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+    REFERENCES `ecommerce`.`users` (`userID`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
 
 
 SET SQL_MODE=@OLD_SQL_MODE;

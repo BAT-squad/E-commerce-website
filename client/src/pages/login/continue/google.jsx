@@ -15,6 +15,13 @@ const Google = ()=>{
             axios.post("http://localhost:5001/api/user/createUser",{userName: username,profilePicture,email: emailValue,password: "haha"}).then((response)=>{
                 console.log(response.data,'fffff')
             })
+            localStorage.setItem("currentUser", JSON.stringify({
+                email: data.user.email,
+                profilePicture: data.user.photoURL,
+                username: data.user.displayName
+              }));
+              var storedData = JSON.parse(localStorage.getItem("currentUser"));
+            console.log(data.user)
         })
 
     }

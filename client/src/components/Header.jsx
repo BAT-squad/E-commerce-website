@@ -8,7 +8,6 @@ import { RiLogoutBoxRLine } from "react-icons/ri";
 const Header = () => {
   const navigate = useNavigate();
   const currentUser = JSON.parse(localStorage.getItem("currentUser"));
-  console.log(currentUser);
   return (
     <header className="bg-transparent">
       <div className="flex justify-between items-center max-w-6xl mx-auto p-3">

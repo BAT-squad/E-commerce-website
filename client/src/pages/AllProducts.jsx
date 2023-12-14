@@ -1,29 +1,12 @@
 import React, { useState } from "react";
-import {
-  Card,
-  Typography,
-  List,
-  ListItem,
-  ListItemPrefix,
-  ListItemSuffix,
-  Chip,
-  Accordion,
-  AccordionHeader,
-  AccordionBody,
-} from "@material-tailwind/react";
+import {Card,Typography,List,ListItem,ListItemPrefix,Accordion,AccordionHeader,AccordionBody,} from "@material-tailwind/react";
 import SlideBar from "../components/SlideBar";
-import {
-  PresentationChartBarIcon,
-  ShoppingBagIcon,
-  UserCircleIcon,
-  Cog6ToothIcon,
-  InboxIcon,
-  PowerIcon,
-} from "@heroicons/react/24/solid";
+import {PresentationChartBarIcon,ShoppingBagIcon} from "@heroicons/react/24/solid";
 import { ChevronRightIcon, ChevronDownIcon } from "@heroicons/react/24/outline";
-
+import axios from "axios";
 const AllProducts = () => {
   const [open, setOpen] = useState(0);
+  // const [brand,setBrand]=useState('')
   const [dashboardContentVisible, setDashboardContentVisible] = useState({
     1: true,
     2: true,
@@ -36,7 +19,22 @@ const AllProducts = () => {
       [value]: !dashboardContentVisible[value],
     });
   };
-
+  const handleBrand=async(brand)=>{
+    try {
+      const res=await axios.get(`http://localhost:5001/api/products/brand/${brand}`)
+      console.log(res.data);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  const handleCategory=async(category)=>{
+    try {
+      const res=await axios.get(`http://localhost:5001/api/products/category/${category}`)
+      console.log(res.data);
+    } catch (error) {
+      console.log(error);
+    }
+  }
   return (
     <Card className="max-w-[20rem] p-4 shadow-xl bg-blue-gray-900/5">
       <div className="mb-4 p-4">
@@ -75,7 +73,11 @@ const AllProducts = () => {
           {dashboardContentVisible[1] && (
             <AccordionBody className="py-1 ml-5">
               <List className="p-0">
-                <ListItem>
+                <ListItem  onClick={()=>{
+        
+                    console.log('clicked');
+                    handleBrand('NIKE')
+                    }}>
                   <ListItemPrefix>
                     <ChevronRightIcon
                       strokeWidth={3}
@@ -86,25 +88,33 @@ const AllProducts = () => {
                     NIKE
                   </Typography>
                 </ListItem>
-                <ListItem>
+                <ListItem onClick={()=>{
+        
+        console.log('clicked');
+        handleBrand('ADIDAS')
+        }}>
                   <ListItemPrefix>
                     <ChevronRightIcon
                       strokeWidth={3}
                       className="h-3 w-5 text-blue-gray-300"
                     />
                   </ListItemPrefix>
-                  <Typography color="blue-gray" className="ml-2 text-white">
+                  <Typography color="blue-gray" className="ml-2 text-white" >
                     ADIDAS
                   </Typography>
                 </ListItem>
-                <ListItem>
+                <ListItem onClick={()=>{
+        
+        console.log('clicked');
+        handleBrand('PUMA')
+        }}>
                   <ListItemPrefix>
                     <ChevronRightIcon
                       strokeWidth={3}
                       className="h-3 w-5 text-blue-gray-300"
                     />
                   </ListItemPrefix>
-                  <Typography color="blue-gray" className="ml-2 text-white">
+                  <Typography color="blue-gray" className="ml-2 text-white" >
                   PUMA
                   </Typography>
                 </ListItem>
@@ -142,7 +152,10 @@ const AllProducts = () => {
           {dashboardContentVisible[2] && (
             <AccordionBody className="py-1 ml-5">
               <List className="p-0">
-                <ListItem>
+                <ListItem onClick={()=>{
+                  console.log('shoes');
+                  handleCategory('Shoes')
+                }}>
                   <ListItemPrefix>
                     <ChevronRightIcon
                       strokeWidth={3}
@@ -153,7 +166,10 @@ const AllProducts = () => {
                     Shoes
                   </Typography>
                 </ListItem>
-                <ListItem>
+                <ListItem onClick={()=>{
+                  console.log('Slipper');
+                  handleCategory('Slipper')
+                }}>
                   <ListItemPrefix>
                     <ChevronRightIcon
                       strokeWidth={3}

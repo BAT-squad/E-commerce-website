@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
+
 export default function App() {
   const [sliderValue, setSliderValue] = useState(0);
   const [data, setData] = useState([]);
@@ -15,7 +16,7 @@ export default function App() {
   const fetchItemsUnderPrice = async () => {
     try {
    
-      const response = await fetch(`http://localhost:5001/api/products/1/${sliderValue}`);
+      const response = await fetch(`http://localhost:5001/api/products/price/1/${sliderValue}`);
       const newData = await response.json();
     
       setData(newData);

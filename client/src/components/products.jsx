@@ -39,21 +39,21 @@ const Products = () => {
 
     setProducts(products);
   }, []);
-   const handleBuyNow = (productID) => {
-    const updatedProducts = products.map(product => {
-      if (product.productID === productID) {
-        return { ...product, like: !product.like };
-      }
-      return product;
-    });
+  //  const handleBuyNow = (productID) => {
+  //   const updatedProducts = products.map(product => {
+  //     if (product.productID === productID) {
+  //       return { ...product, like: !product.like };
+  //     }
+  //     return product;
+  //   });
 
-    const product = updatedProducts.find((product) => product.productID === productID);
+    // const product = updatedProducts.find((product) => product.productID === productID);
 
-    setSelectedProduct(product);
-    setProducts(updatedProducts);
+    // setSelectedProduct(product);
+    // setProducts(updatedProducts);
 
-    console.log(`Buy Now clicked for product ID: ${productID}`);
-  };
+    // console.log(`Buy Now clicked for product ID: ${productID}`);
+  // };
 
   return (
     <div className="flex flex-wrap justify-center gap-8">

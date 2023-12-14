@@ -137,11 +137,12 @@ const Profile = () => {
                 alt="Profile"
                 className="mx-auto my-auto rounded-full w-full h-full cursor-pointer"
               />
-              <button 
-              onClick={()=> handleUpdateProfilePicClick()}
-              className="bg-violet-700 w-6 h-6 rounded-full flex absolute left-[52%] top-[70%] justify-center items-center">
+              <button
+                onClick={() => handleUpdateProfilePicClick()}
+                className="bg-violet-700 w-6 h-6 rounded-full flex absolute left-[52%] top-[70%] justify-center items-center"
+              >
                 <FaCamera className="text-white h-3" />
-              </button >
+              </button>
               <h1 className="text-white text-center text-xl mt-5 whitespace-nowrap font-semibold">
                 Bilel Bourgou
               </h1>

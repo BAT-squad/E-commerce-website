@@ -5,10 +5,26 @@ import Google from "./login/continue/google";
 import Apple from "./login/continue/apple";
 import { FaEyeSlash } from "react-icons/fa6";
 import { Link } from "react-router-dom";
+import { signInWithEmailAndPassword, getAuth } from "firebase/auth";
 
 
 const Login = () => {
   const [view, setView] = useState(false);
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+
+  const handleLogin= async()=>{
+    try{
+  const auth = getAuth()
+ await signInWithEmailAndPassword(auth,email,password).then((response)=>{
+  console.log(response)
+ })
+}
+catch(err){
+  throw err 
+}
+  }
+ 
   return (
     <div>
       <p className="text-transparent">.</p>
@@ -33,9 +49,11 @@ const Login = () => {
                 type="password"
                 className="bg-transparent left-8  top-[20px] border-b-[1px] absolute inline border-input placeholder:text-white mt-12 text-white w-10/12"
                 placeholder="password"
+                onChange={e=>setPassword(e.target.value)}
               />
               <FaEyeSlash className=" absolute top-[78px] left-[88%] text-white" />
               <button
+                onClick={handleLogin}
                 className="bg-continue text-white p-[1px] px-4 rounded-2xl float-right mt-14 mr-5"
               >
                 Login
@@ -46,13 +64,16 @@ const Login = () => {
             <div>
               <div className="mt-10 ml-8">
                 <p className="inline text-white">New user? </p>
-                <p className="inline text-mauve"><Link to= "/signup">Create an account</Link></p>
+                <p className="inline text-mauve">
+                  <Link to="/signup">Create an account</Link>
+                </p>
               </div>
               <div className="ml-8 mt-10">
                 <input
                   type="text"
                   className="bg-transparent border-b-[1px] border-input text-white w-11/12"
                   placeholder="Email Adress"
+                  onChange={e=>setEmail(e.target.value)}
                 />
                 <button
                   onClick={() => setView(!view)}

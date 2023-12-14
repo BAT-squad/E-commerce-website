@@ -27,9 +27,23 @@ const updateUserCoverPicController = (req, res) => {
     })
 }
 
+const updateUserProfilePicController = (req, res) => {
+    const userId = req.params.id; 
+    console.log(userId)
+    const newProfilePic = req.body.profilePicture;
+    userModel.updateUserProfilePic(userId, newProfilePic,(err, result) => {
+        if (err) {
+            res.status(500).json({ error: 'Internal Server Error' });
+        } else {
+            res.json({ message: 'Profile picture updated successfully', result });
+        }
+    })
+}
+
 module.exports = {
     updateUserController,
     updateUserCoverPicController,
+    updateUserProfilePicController,
     addUser: function(req,res){
         const salt = bcrypt.genSaltSync(10)
         const hash = bcrypt.hashSync(req.body.password, salt)

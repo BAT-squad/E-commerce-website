@@ -39,17 +39,23 @@ const Products = () => {
 
     setProducts(products);
   }, []);
-  const handleBuyNow = (productID) => {
-    const product = products.find((product) => product.productID === productID);
+   const handleBuyNow = (productID) => {
+    const updatedProducts = products.map(product => {
+      if (product.productID === productID) {
+        return { ...product, like: !product.like };
+      }
+      return product;
+    });
+
+    const product = updatedProducts.find((product) => product.productID === productID);
 
     setSelectedProduct(product);
+    setProducts(updatedProducts);
 
     console.log(`Buy Now clicked for product ID: ${productID}`);
   };
 
- 
-
- return (
+  return (
     <div className="flex flex-wrap justify-center gap-8">
       {products.map((product) => (
         <div key={product.productID} className="border p-4 hover:scale-105 transition-transform">
@@ -67,7 +73,8 @@ const Products = () => {
                   xmlSpace="preserve"
                   xmlns="http://www.w3.org/2000/svg"
                   xmlnsXlink="http://www.w3.org/1999/xlink"
-                  className="w-6 h-6 transition-transform fill-current text-gray-600 hover:scale-110"
+                  className={`w-6 h-6 transition-transform fill-current text-gray-600 hover:scale-110 ${product.like ? 'text-red-500' : ''}`}
+                  onClick={() => handleBuyNow(product.productID)}
                 >
                   <path d="M16.4,4C14.6,4,13,4.9,12,6.3C11,4.9,9.4,4,7.6,4C4.5,4,2,6.5,2,9.6C2,14,12,22,12,22s10-8,10-12.4C22,6.5,19.5,4,16.4,4z"></path>
                 </svg>

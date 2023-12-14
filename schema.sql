@@ -18,6 +18,24 @@ CREATE SCHEMA IF NOT EXISTS `ecommerce` DEFAULT CHARACTER SET utf8mb4 COLLATE ut
 USE `ecommerce` ;
 
 -- -----------------------------------------------------
+-- Table `ecommerce`.`users`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `ecommerce`.`users` (
+  `userID` INT NOT NULL AUTO_INCREMENT,
+  `email` VARCHAR(45) NOT NULL,
+  `userName` VARCHAR(45) NOT NULL,
+  `birthday` DATE  NULL,
+  `password` VARCHAR(200) NOT NULL,
+  `coverUrl` VARCHAR(450) NULL,
+  `bio` VARCHAR(255) NULL,
+  `profilePicture` VARCHAR(450) NULL,
+
+  PRIMARY KEY (`userID`),
+  UNIQUE INDEX `email_UNIQUE` (`email` ASC) VISIBLE)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
 -- Table `ecommerce`.`brands`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `ecommerce`.`brands` (

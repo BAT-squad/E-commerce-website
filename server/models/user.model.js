@@ -30,5 +30,11 @@ const updateUserCoverPic = (id,newCoverPic,callback)=>{
 
 module.exports = {
     updateUser,
-    updateUserCoverPic
+    updateUserCoverPic,
+    addUser: function(email,userName,birthday,password,coverUrl,bio,profilePicture,callback){
+        const sql = `insert into users (email,userName,birthday,password,coverUrl,bio,profilePicture) values(?,?,?,?,?,?,?)`
+        db.query(sql,[email,userName,birthday,password,coverUrl,bio,profilePicture],function(error,results){
+            callback(error,results)
+        })
+    }
 };

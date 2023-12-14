@@ -57,7 +57,7 @@ const SignUp = () => {
             <div className="container mx-auto p-4 inline" >
 
               <select
-                className="bg-transparent border-b-[1px]    inline text-placeholder border-input  p-2 w-10/12"
+                className="bg-transparent border-b-[1px]    inline text-placeholder border-input  p-2 w-12/12"
                 defaultValue="" 
               >
                 <option value="0"  className="text-white">
@@ -84,7 +84,7 @@ const SignUp = () => {
             />
             <input
               type="text"
-              className=" top-[-18px] ml-[230px]   w-7/12 bg-transparent border-b-[1px] absolute inline border-input placeholder:text-white mt-12 "
+              className=" top-[-18px] ml-[230px]   w-7/12 bg-transparent border-b-[1px] absolute inline border-input text-white mt-12 "
               placeholder="Year"
             />
           </div>

@@ -6,6 +6,7 @@ import Apple from "./login/continue/apple";
 import { FaEyeSlash } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 
+
 const Login = () => {
   const [view, setView] = useState(false);
   return (

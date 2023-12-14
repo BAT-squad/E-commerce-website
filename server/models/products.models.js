@@ -14,7 +14,21 @@ const postproductsM = (productData, callback) => {
   return connection.query(query, values, callback);
 }
 
+const getOneProduct = (id,callback)=>{
+  const query = 'SELECT * FROM products WHERE productID =?';
+  const values = [id];
+  connection.query(query, values, (err,result)=>{
+    if (err) {
+      console.error('Database error:', err);
+      callback(err, null);
+    } else {
+      callback(null, result);
+    }
+  });
+
+}
 
 
-module.exports = { getAllProductsM, postproductsM }
+
+module.exports = { getAllProductsM, postproductsM , getOneProduct}
 

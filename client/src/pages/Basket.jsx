@@ -1,38 +1,40 @@
-import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+// import React, { useState, useEffect } from "react";
+// import { useParams } from "react-router-dom";
+// import Products from "../components/products";
 
-const Basket = () => {
-  const { productID } = useParams();
-  const [product, setProduct] = useState(null);
+// const Basket = () => {
+//   const { productID } = useParams();
+//   const [product, setProduct] = useState("");
+//   console.log(product,"ttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttt");
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch(`http://localhost:5001/api/products/get/${productID}`);
-        const data = await response.json();
+//   useEffect(() => {
+//     const fetchData = async () => {
+//       try {
+//         const response = await fetch(`http://localhost:5001/api/products/get/${productID}`);
+//         const data = await response.json();
+//         console.log(response,"hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh");
+//         setProduct(data);
 
-        setProduct(data);
-      } catch (error) {
-        console.error("Error fetching product data:", error);
-      }
-    };
+//       } catch (error) {
+//         console.error("Error fetching product data:", error);
+//       }
+//     };
 
-    fetchData();
-  }, [productID]);
+//     fetchData();
+//   }, [productID]);
 
-  return (
-    <div>
-      <h1>Selected Product in Basket</h1>
-      {product ? (
-        <div>
-          <h2>{product.productName}</h2>
-          <p>Price: ${product.price}</p>
-        </div>
-      ) : (
-        <p>Loading...</p>
-      )}
-    </div>
-  );
-};
+//   return (
+//     <div>
+//       {product.map(Products =>{
+//         <div>
 
-export default Basket;
+//         <h1>{Products.productName}</h1>
+//         <h1>{Products.price}</h1>
+//         </div>
+//       })}
+//      <h1>baaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaasket</h1>
+//     </div>
+//   );
+// };
+
+// export default Basket;

@@ -68,7 +68,7 @@ const AllProducts = () => {
                 color="blue-gray"
                 className="ml-2 font-normal text-white"
               >
-                Dashboard
+                Brand
               </Typography>
             </AccordionHeader>
           </ListItem>
@@ -83,7 +83,7 @@ const AllProducts = () => {
                     />
                   </ListItemPrefix>
                   <Typography color="blue-gray" className="ml-2 text-white">
-                    Analytics
+                    NIKE
                   </Typography>
                 </ListItem>
                 <ListItem>
@@ -94,7 +94,7 @@ const AllProducts = () => {
                     />
                   </ListItemPrefix>
                   <Typography color="blue-gray" className="ml-2 text-white">
-                    Reporting
+                    ADIDAS
                   </Typography>
                 </ListItem>
                 <ListItem>
@@ -105,7 +105,7 @@ const AllProducts = () => {
                     />
                   </ListItemPrefix>
                   <Typography color="blue-gray" className="ml-2 text-white">
-                    Projects
+                   PUMA
                   </Typography>
                 </ListItem>
               </List>
@@ -135,7 +135,7 @@ const AllProducts = () => {
                 color="blue-gray"
                 className="ml-2 font-normal text-white"
               >
-                E-Commerce
+                Category
               </Typography>
             </AccordionHeader>
           </ListItem>
@@ -150,7 +150,7 @@ const AllProducts = () => {
                     />
                   </ListItemPrefix>
                   <Typography color="blue-gray" className="ml-2 text-white">
-                    Orders
+                    Shoes
                   </Typography>
                 </ListItem>
                 <ListItem>
@@ -161,7 +161,7 @@ const AllProducts = () => {
                     />
                   </ListItemPrefix>
                   <Typography color="blue-gray" className="ml-2 text-white">
-                    Products
+                  Slipper
                   </Typography>
                 </ListItem>
               </List>

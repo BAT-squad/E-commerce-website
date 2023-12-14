@@ -11,6 +11,7 @@ import About from "./pages/About.jsx"
 import Basket from "./pages/Basket.jsx"
 import "./index.css";
 import Footer from "./components/Footer.jsx";
+import EditProfile from "./pages/EditProfile.jsx";
 
 const router = createBrowserRouter([
   {
@@ -36,19 +37,19 @@ const router = createBrowserRouter([
   {
     path: "/login",
     element: (
-      <div>
-        <Header />
+
+        
         <Login />
-      </div>
+  
     )
   },
   {
     path: "/signup",
     element: (
-      <div>
-        <Header />
+    
+       
         <SignUp />
-      </div>
+
     )
   },
   {
@@ -57,6 +58,16 @@ const router = createBrowserRouter([
       <div>
         <Header />
         <Profile />
+        <Footer/>
+      </div>
+    )
+  },
+  {
+    path: "/edit-profile",
+    element: (
+      <div>
+        <Header />
+        <EditProfile />
         <Footer/>
       </div>
     )
@@ -90,12 +101,14 @@ const router = createBrowserRouter([
       </div>
     )
   },
+
 ]);
 
 function App() {
   return (
     <>
       <RouterProvider router={router} />
+       
     </>
   );
 }

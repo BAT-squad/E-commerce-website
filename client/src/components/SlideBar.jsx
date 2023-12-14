@@ -17,6 +17,7 @@ export default function App() {
    
       const response = await fetch(`http://localhost:5001/api/products/1/${sliderValue}`);
       const newData = await response.json();
+    
       setData(newData);
 
       console.log('Items under the price:', newData);
@@ -45,7 +46,7 @@ export default function App() {
         onChange={handleSliderChange}
       />
        <p className="text-neutral-700 dark:text-neutral-200 text-center mt-2">
-        Current Price: ${sliderValue}
+        Current Price: {sliderValue} $
       </p>
     </div>
   );

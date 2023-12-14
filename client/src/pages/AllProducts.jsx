@@ -105,7 +105,7 @@ const AllProducts = () => {
                     />
                   </ListItemPrefix>
                   <Typography color="blue-gray" className="ml-2 text-white">
-                   PUMA
+                  PUMA
                   </Typography>
                 </ListItem>
               </List>

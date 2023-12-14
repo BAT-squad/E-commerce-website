@@ -34,7 +34,7 @@ const Home = () => {
         <SiPuma className="w-40 h-40 text-gray-500" />
       </div>
 
-      <div className="flex items-center justify-center mt-4 space-x-60">
+      <div className="flex items-center justify-center mt-4 space-x-60 mb-[60px]">
         <FaHandHoldingDollar className="w-10 h-10 text-violet-500" />
         <FaCopyright className="w-10 h-10 text-violet-500" />
         <FaArrowRightArrowLeft className="w-10 h-10 text-violet-500" />

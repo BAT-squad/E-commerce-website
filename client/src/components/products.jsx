@@ -35,16 +35,17 @@ const Products = () => {
   };
 
   return (
-    <div className="flex flex-wrap justify-center gap-8">
+    <div className="flex flex-wrap justify-center gap-[50px]">
       {products.map((product) => (
-        <div key={product.productID} className="border p-4 hover:scale-105 transition-transform">
-          <img src={product.imageUrl} alt={product.productName} className="w-50 h-40 object-cover mb-4" />
+        <div key={product.productID} className="border p-4 hover:scale-105 transition-transform ">
+          <img src={product.imageUrl} alt={product.productName} className="w-[250px] h-[250px] object-cover mb-7 ml-[30px]" />
           <div className="text-white">
             <h2 className="text-xl font-bold mb-2">{product.productName}</h2>
             <p className="text-white">${product.price}</p>
             <div className="flex items-center mt-2">
               <label className="container mr-2">
                 <input type="checkbox" className="hidden" />
+               
                 <svg
                   id="Layer_1"
                   version="1.0"

@@ -12,8 +12,8 @@ const Google = ()=>{
     const handleClick = ()=>{
         
         signInWithPopup(auth,googleProvider).then((data)=>{
-            
             setEmailValue(data.user.email)
+            
             setUsername(data.user.displayName)
             setProfilePicture(data.user.photoURL)
             axios.post("http://localhost:5001/api/user/createUser",{userName: username,profilePicture,email: emailValue,password: "haha"}).then((response)=>{

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import image from "./login/anime.png";
 import { FaEyeSlash } from "react-icons/fa6";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
     const[email,setEmail] = useState("")
@@ -11,6 +12,7 @@ const SignUp = () => {
     const[month, setMonth] = useState("")
     const[year,setYear] = useState("")
     const[day,setDay] = useState("")
+    const navigate = useNavigate()
 
     const handlePost = ()=>{
       let username = firstName + LastName
@@ -19,6 +21,8 @@ const SignUp = () => {
       axios.post("http://localhost:5001/api/user/createUser",{email,userName: username ,password, date}).then((response)=>{
         console.log(response)
       })
+      useNavigate("/")
+
     }
 
     

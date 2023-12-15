@@ -5,6 +5,7 @@ import axios from 'axios';
 const AllProducts = () => {
   const [products, setProducts] = useState([]);
   const [selectedProduct, setSelectedProduct] = useState(null);
+  const[nike,setNike]=useState('')
 
   useEffect(() => {
     const apiUrl = 'http://localhost:5001/api/products/get';
@@ -16,7 +17,7 @@ const AllProducts = () => {
       .catch(error => {
         console.error('Error fetching data:', error);
       });
-    setProducts(products);
+    // setProducts(products);
   }, []);
    const handleBuyNow = (productID) => {
     const updatedProducts = products.map(product => {

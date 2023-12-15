@@ -79,5 +79,11 @@ module.exports = {
                 }
             }
         );
+    },
+    login: function(req,res){
+        userModel.login(req.body.email, function(err,results){
+            if(err) res.send(err)
+            else res.send(results)
+        })
     }
 };

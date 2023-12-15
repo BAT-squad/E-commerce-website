@@ -7,6 +7,7 @@
   import { Link } from "react-router-dom";
   import { signInWithEmailAndPassword, getAuth } from "firebase/auth";
   import axios from "axios";
+  import { useNavigate } from "react-router-dom";
 
 
 
@@ -15,18 +16,33 @@
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate()
+
     const handleLogin= async()=>{
       try{
     const auth = getAuth()
     await signInWithEmailAndPassword(auth,email,password);
     var birthday = localStorage.getItem("birthday")
     var userName = localStorage.getItem("userName")
-    axios.post("http://localhost:5001/api/user/createUser", {
+    const response = await  axios.post("http://localhost:5001/api/user/login", {
           email,
           userName,
           password,
           birthday,
         })
+        console.log(response.data[0])
+        localStorage.setItem(
+          "currentUser",
+          JSON.stringify({
+            email: response.data[0].email ,
+            profilePicture: response.data[0].profilePicture,
+            username: response.data[0].userName,
+            birthday: response.data[0].birthday
+          })
+        );
+        var storedData = JSON.parse(localStorage.getItem("currentUser"));
+        console.log(storedData);
+        navigate("/");
   }
   catch(err){
     throw err 

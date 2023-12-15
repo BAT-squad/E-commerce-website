@@ -3,7 +3,7 @@ import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import {getAuth,GoogleAuthProvider,FacebookAuthProvider,OAuthProvider} from "firebase/auth"
 const firebaseConfig = {
-  apiKey: "AIzaSyAkT3Go2KQuwAgbvOk5xchffAgD-iqFrrA",
+  apiKey: process.env.FIREBASE_PRIVATE_KEY,
   authDomain: "e-commerce-794f5.firebaseapp.com",
   projectId: "e-commerce-794f5",
   storageBucket: "e-commerce-794f5.appspot.com",

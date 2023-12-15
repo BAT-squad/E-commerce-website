@@ -3,13 +3,9 @@ import image from "./login/anime.png";
 import { FaEyeSlash } from "react-icons/fa6";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { getAuth,createUserWithEmailAndPassword } from "firebase/auth";
-
-
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
 const SignUp = () => {
-
-  const userContext = useContext(UserContext);
   const [email, setEmail] = useState("");
   const [firstName, setFirstName] = useState("");
   const [LastName, setLastName] = useState("");
@@ -17,26 +13,25 @@ const SignUp = () => {
   const [month, setMonth] = useState("");
   const [year, setYear] = useState("");
   const [day, setDay] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+
   const navigate = useNavigate();
-  
+
   const handleSignUp = async () => {
-    const auth = getAuth()
+    const auth = getAuth();
     createUserWithEmailAndPassword(auth, email, password)
-    .then((userCredential)=>{
-      userContext.setUser({
-        email: user.email,
-        uid: user.uid,
-      
+      .then((userCredential) => {
+        console.log(userCredential);
+      })
+      .catch((err) => {
+        console.log(err);
       });
-      console.log(userCredential)
-    }).catch((err)=>{
-      console.log(err)
-    })
-  
   };
   const handlePost = () => {
     let username = firstName + LastName;
     let date = year + "/" + month + "/" + day;
+    localStorage.setItem("userName", username);
+    localStorage.setItem("birthday", date);
     console.log(username, date);
     axios
       .post("http://localhost:5001/api/user/createUser", {
@@ -46,7 +41,7 @@ const SignUp = () => {
         birthday: date,
       })
       .then((response) => {
-        handleSignUp()
+        handleSignUp();
         console.log(response);
       });
     navigate("/login");
@@ -94,12 +89,15 @@ const SignUp = () => {
             </div>
             <div className=" inline">
               <input
-                type="password"
+                type={showPassword ? "text" : "password"}
                 className="bg-transparent border-b-[1px] absolute inline border-input placeholder:text-white mt-12 text-white w-10/12"
                 placeholder="password"
                 onChange={(e) => setPassword(e.target.value)}
               />
-              <FaEyeSlash className=" absolute top-[15.5rem] left-[88%] text-white" />
+              <FaEyeSlash
+                onClick={() => setShowPassword(!showPassword)}
+                className=" absolute top-[15.5rem] left-[88%] text-white"
+              />
             </div>
           </div>
           <p className=" absolute top-80 text-white left-[10%]">

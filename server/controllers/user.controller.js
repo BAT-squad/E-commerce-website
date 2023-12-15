@@ -29,6 +29,7 @@ const updateUserController = (req, res) => {
 const updateUserCoverPicController = (req, res) => {
     const userId = req.params.id;
     console.log(userId)
+    console.log(setUser)
     const newCoverPic = req.body.coverUrl;
     userModel.updateUserCoverPic(userId, newCoverPic, (err, result) => {
         if (err) {

@@ -8,7 +8,7 @@ const Basket = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`http://localhost:5001/api/products/get/1`);
+        const response = await fetch(`http://localhost:5001/api/products/get/${product}`);
         const data = await response.json();
         console.log(response,"hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh");
         console.log(typeof data)

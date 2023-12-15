@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { SiNike, SiAdidas, SiPuma } from "react-icons/si";
 import { FaCopyright } from "react-icons/fa";
 import { FaHandHoldingDollar, FaArrowRightArrowLeft } from "react-icons/fa6";
+import { BsBadge8K } from "react-icons/bs";
 import Products from "../components/products.jsx";
 const Home = () => {
   const navigate = useNavigate();
@@ -26,6 +27,12 @@ const Home = () => {
         >
           Explore now
         </button>
+        <div className=" flex gap-[37%]">
+       <p className="text-gray-500"> <BsBadge8K className=" text-white text-[200%]"/>Fashion Designer</p>
+       <p className="text-white w-20 h-20 text-2xl md:text-3xl lg:text-4xl xl:text-5xl text-white font-bold mb-6">100+</p>
+       <p className="text-gray-500 w-20 h-20">BRANDS</p>
+
+        </div>
       </div>
       <div className="flex justify-center space-x-8 md:space-x-12 gap-20 h-20 lg:space-x-20 mb-10">
         <SiNike className="w-12 md:w-16 lg:w-20 h-12 md:h-16 lg:h-20 text-gray-500" />

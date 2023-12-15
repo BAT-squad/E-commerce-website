@@ -14,7 +14,6 @@ const Google = () => {
   const handleClick = async () => {
     try {
       const data = await signInWithPopup(auth, googleProvider);
-      console.log(data.user);
 
       const userEmail = data.user.email;
       const userDisplayName = data.user.displayName;
@@ -26,8 +25,6 @@ const Google = () => {
         email: userEmail,
         password: "haha",
       });
-
-      console.log(response.data, "fffff");
 
       setEmailValue(userEmail);
       setUsername(userDisplayName);
@@ -51,13 +48,13 @@ const Google = () => {
     }
   };
 
-  console.log(emailValue);
+
 
   return (
     <div>
       <button
         onClick={handleClick}
-        className="text-[100%] flex items-center gap-2 text-white rounded-full px-[16%] mx-auto py-3 mt-2 border-[0.1px] whitespace-nowrap"
+        className=" iphone:px-9 text-[100%] flex items-center gap-2 text-white rounded-full px-[16%] mx-auto py-3 mt-2 border-[0.1px] whitespace-nowrap"
       >
         <FcGoogle className="text-2xl" /> Continue With Google
       </button>

@@ -14,7 +14,6 @@ const Google = () => {
   const handleClick = async () => {
     try {
       const data = await signInWithPopup(auth, googleProvider);
-      console.log(data.user);
 
       const userEmail = data.user.email;
       const userDisplayName = data.user.displayName;
@@ -26,8 +25,6 @@ const Google = () => {
         email: userEmail,
         password: "haha",
       });
-
-      console.log(response.data, "fffff");
 
       setEmailValue(userEmail);
       setUsername(userDisplayName);
@@ -51,7 +48,7 @@ const Google = () => {
     }
   };
 
-  console.log(emailValue);
+
 
   return (
     <div>

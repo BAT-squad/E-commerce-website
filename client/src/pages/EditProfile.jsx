@@ -3,25 +3,31 @@ import axios from "axios";
 import {useNavigate} from "react-router-dom"
 
 const EditProfile = () => {
-
+  let currentUser = JSON.parse(localStorage.getItem('currentUser'))
+  const userID = currentUser.userID
+  console.log(currentUser);
+  console.log(userID);
   const navigate = useNavigate() 
   const [formData,setFormData] = useState({})
 
 
   const handleChange = (e) => {
     setFormData({...formData, [e.target.id]: e.target.value})
-    console.log(formData);
+    console.log(formData,"aaa");
   }
 
   const onSubmit = (e) => {
     e.preventDefault();
+    currentUser = formData
+    localStorage.setItem('currentUser', JSON.stringify(currentUser))
     axios
-    .put("http://localhost:5001/api/user/update/1", formData)
+    .put(`http://localhost:5001/api/user/update/${userID}`, formData)
     .then((res) => {
       console.log(res)
       navigate('/profile')
     })
     .catch((err) => console.log(err));
+    // console.log(formData);
   }
 
   return (
@@ -36,6 +42,7 @@ const EditProfile = () => {
           type="text"
           placeholder="Username"
           onChange={handleChange}
+          defaultValue={currentUser.userName}
         />
         <input
           id="password"
@@ -43,6 +50,7 @@ const EditProfile = () => {
           type="password"
           placeholder="Password"
           onChange={handleChange}
+          defaultValue={currentUser.password}
         />
         <input
           id="email"
@@ -50,12 +58,14 @@ const EditProfile = () => {
           type="text"
           placeholder="E-mail"
           onChange={handleChange}
+          defaultValue={currentUser.email}
         />
         <input
           className="p-3 rounded-full bg-transparent border text-white"
           type="date"
           id="birthday"
           onChange={handleChange}
+          defaultValue={currentUser.birthday}
         />
 
         <textarea
@@ -63,6 +73,7 @@ const EditProfile = () => {
           className="p-3 rounded-full bg-transparent border text-white"
           placeholder="Bio"
           onChange={handleChange}
+          defaultValue={currentUser.bio}
         ></textarea>
 
         <button 

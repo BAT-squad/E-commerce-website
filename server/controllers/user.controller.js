@@ -29,6 +29,7 @@ const updateUserController = (req, res) => {
 const updateUserCoverPicController = (req, res) => {
     const userId = req.params.id;
     console.log(userId)
+    console.log(setUser)
     const newCoverPic = req.body.coverUrl;
     userModel.updateUserCoverPic(userId, newCoverPic, (err, result) => {
         if (err) {
@@ -78,5 +79,11 @@ module.exports = {
                 }
             }
         );
+    },
+    login: function(req,res){
+        userModel.login(req.body.email, function(err,results){
+            if(err) res.send(err)
+            else res.send(results)
+        })
     }
 };

@@ -6,6 +6,9 @@ const getAllProductsM = (callback) => {
   const query = "SELECT * FROM products"
   return connection.query(query, callback);
 }
+
+
+
 const postproductsM = (productData, callback) => {
   const query = 'INSERT INTO products (productName, price, category, `like`, imageUrl,brands_brandID) VALUES (?, ?, ?, ?, ?,?)';
   
@@ -14,19 +17,15 @@ const postproductsM = (productData, callback) => {
   return connection.query(query, values, callback);
 }
 
+
+
 const getOneProduct = (id,callback)=>{
   const query = 'SELECT * FROM products WHERE productID =?';
   const values = [id];
-  connection.query(query, values, (err,result)=>{
-    if (err) {
-      console.error('Database error:', err);
-      callback(err, null);
-    } else {
-      callback(null, result);
-    }
-  });
-
+  return connection.query(query, values, callback);
 }
+
+
 
 const filterCategory = (category, callback) => {
   const query = "SELECT * FROM products WHERE category=?";
@@ -39,8 +38,9 @@ const filterPrice=(minPrice,maxPrice,callback)=>{
   return connection.query(query,[minPrice,maxPrice],callback)
 }
 
+
 const filterbrand=(brand,callback)=>{
-  const query=`SELECT * FROM ecommerce.products inner join ecommerce.brands on ecommerce.products.brands_brandID=ecommerce.brands.brandID where brandName=?;`
+  const query=`SELECT products.productID , products.imageUrl , products.price , products.category ,brands.brandName FROM ecommerce.products inner join ecommerce.brands on ecommerce.products.brands_brandID=ecommerce.brands.brandID where brandName=?;`
   return connection.query(query,[brand],callback)
 }
 

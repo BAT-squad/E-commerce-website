@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import {
   Card,
   Typography,
@@ -16,13 +16,36 @@ import {
 } from "@heroicons/react/24/solid";
 import { ChevronRightIcon, ChevronDownIcon } from "@heroicons/react/24/outline";
 import axios from "axios";
-const AllProducts = () => {
+const FilterB = ({handleBrand,handleCategory,fetchItemsUnderPrice}) => {
   const [open, setOpen] = useState(0);
-  // const [brand,setBrand]=useState('')
   const [dashboardContentVisible, setDashboardContentVisible] = useState({
     1: true,
     2: true,
   });
+  const [sliderValue, setSliderValue] = useState(0);
+  const [data, setData] = useState([]);
+
+  const handleSliderChange = (e) => {
+    setSliderValue(parseFloat(e.target.value));
+  };
+  // useEffect(() => {
+  //   fetchItemsUnderPrice();
+  // }, [sliderValue]);
+
+  // const fetchItemsUnderPrice = async () => {
+  //   try {
+   
+  //     const response = await fetch(`http://localhost:5001/api/products/price/1/${sliderValue}`);
+  //     const newData = await response.json();
+    
+  //     setData(newData);
+
+  //     console.log('Items under the price:', newData);
+  //   } catch (error) {
+  //     console.error('Error fetching items:', error);
+  //   }
+  // };
+
 
   const handleOpen = (value) => {
     setOpen(open === value ? 0 : value);
@@ -31,26 +54,7 @@ const AllProducts = () => {
       [value]: !dashboardContentVisible[value],
     });
   };
-  const handleBrand = async (brand) => {
-    try {
-      const res = await axios.get(
-        `http://localhost:5001/api/products/brand/${brand}`
-      );
-      console.log(res.data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-  const handleCategory = async (category) => {
-    try {
-      const res = await axios.get(
-        `http://localhost:5001/api/products/category/${category}`
-      );
-      console.log(res.data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  
   return (
     <Card className="max-w-[20rem] p-4 shadow-xl bg-blue-gray-900/5">
       <div className="mb-4 p-4">
@@ -209,7 +213,7 @@ const AllProducts = () => {
         </Accordion>
         <ListItem className="mt-2">
           <ListItemPrefix>
-            <SlideBar />
+            <SlideBar fetchItemsUnderPrice={fetchItemsUnderPrice} />
           </ListItemPrefix>
         </ListItem>
       </List>
@@ -270,4 +274,4 @@ const AllProducts = () => {
   );
 };
 
-export default AllProducts;
+export default FilterB;

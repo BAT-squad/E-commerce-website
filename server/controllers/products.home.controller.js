@@ -25,14 +25,16 @@ const postproductsC = (req, res) => {
   };
   
 const getOneProductC = (req, res) => {
-  const id = req.params.id;
+  const id = req.params.productID;
   getOneProduct(id, (err, results) => {
-    if (err) {
-      console.error(err, "Error fetching products");
-      res.status(500).json('Error fetching products');
-    } else {
-      res.json(results);
+    if (err){
+      console.error(err, "Error getting one product")
+      res.status(500).json('Error getting one product');
     }
+    else{
+      res.json(results)
+    }
+
   });
 }
 
@@ -65,8 +67,8 @@ const filterbyPrice=(req,res)=>{
 
 const filterB = (req,res)=>{
   // console.log(req.params);
-  const brandName = req.params.brandName
-  // console.log(brandName,"hhhhhh")
+  const brandName = req.params.id
+  console.log(brandName,"hhhhhh")
   filterbrand(brandName,(err,results)=>{
     if (err) {
       console.error(err,"filter brand");

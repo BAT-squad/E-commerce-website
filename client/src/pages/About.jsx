@@ -21,12 +21,12 @@ const About = () => {
     <div>
       <section className="my-8 mx-auto text-white text-center">
         <h2 className="text-2xl font-bold text-white mb-4">Who We Are</h2>
-        <p className="mb-4 text-white">
+        <p className="mb-4 text-white paragraph-box">
           At B.A.T-SQUAD, we're not just a shoe retailer, we're a team of style enthusiasts dedicated to delivering quality and comfort. Our vision is to curate a collection that blends the latest trends with a commitment to customer satisfaction.
         </p>
         {showMoreWhoWeAre && (
           <p>
-            We believe in the transformative power of the right pair of shoes and aim to build a community of individuals who share our passion for fashion and functionality.
+            We believe in the transformative  power of the right pair of shoes and aim to build a community of individuals who share our passion for fashion and functionality.
           </p>
         )}
         <button

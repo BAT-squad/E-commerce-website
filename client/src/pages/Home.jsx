@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { SiNike, SiAdidas, SiPuma } from "react-icons/si";
 import { FaCopyright } from "react-icons/fa";
 import { FaHandHoldingDollar, FaArrowRightArrowLeft } from "react-icons/fa6";
-import Products from "../components/products.jsx"
+import Products from "../components/products.jsx";
 const Home = () => {
   const navigate = useNavigate();
 
@@ -12,14 +12,13 @@ const Home = () => {
   };
 
   return (
-    <div className="text-center p-[10%]">
-      <div className="items-center justify-center mb-10">
-        <h1 className=" text-3xl text-white font-bold mb-8">
+<div className="text-center p-8 md:p-12 lg:p-16 xl:p-20">
+      <div className="mb-8">
+        <h1 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl text-white font-bold mb-6">
           Shoes are the Spirit of Fashion
         </h1>
         <p className="text-gray-500 mb-6">
-          Shoes define style, telling a unique story through <br /> personal choices.
-          They are the essence of self-epression and individuality in fashion.
+          Shoes define style, telling a unique story through personal choices. They are the essence of self-expression and individuality in fashion.
         </p>
         <button
           className="text-white bg-violet-600 rounded-full p-2"
@@ -28,10 +27,10 @@ const Home = () => {
           Explore now
         </button>
       </div>
-      <div className="flex justify-center space-x-80">
-        <SiNike className="w-40 h-40 text-gray-500" />
-        <SiAdidas className="w-40 h-40 text-gray-500" />
-        <SiPuma className="w-40 h-40 text-gray-500" />
+      <div className="flex justify-center space-x-8 md:space-x-12 gap-20 h-20 lg:space-x-20 mb-10">
+        <SiNike className="w-12 md:w-16 lg:w-20 h-12 md:h-16 lg:h-20 text-gray-500" />
+        <SiAdidas className="w-12 md:w-16 lg:w-20 h-12 md:h-16 lg:h-20 text-gray-500" />
+        <SiPuma className="w-12 md:w-16 lg:w-20 h-12 md:h-16 lg:h-20 text-gray-500" />
       </div>
 
       <div className="flex items-center justify-center mt-4 space-x-60 mb-[60px]">
@@ -39,12 +38,14 @@ const Home = () => {
         <FaCopyright className="w-10 h-10 text-violet-500" />
         <FaArrowRightArrowLeft className="w-10 h-10 text-violet-500" />
       </div>
-        <Products/>
-      <div className="justify-center text-white text-[50px] mt-10">
-        Freaquently Asked Question
-        <h1 className=" text-gray-500 text-[16px]">Wanna Ask Something?</h1>
+      <Products />
+      <div className="text-white text-2xl md:text-3xl lg:text-4xl mt-8 md:mt-10">
+        Frequently Asked Questions
+        <h1 className="text-gray-500 text-md md:text-xl lg:text-2xl">
+          Wanna Ask Something?
+        </h1>
       </div>
-      <div className="flex mt-10  justify-center items-center">
+      <div className="flex mt-10 justify-center items-center">
         <div className=" flex flex-col flex-1 justify-center items-center">
           <input
             type="text"

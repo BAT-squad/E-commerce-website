@@ -2,10 +2,49 @@ import React, { useState,useEffect } from 'react'
 import FilterBar from '../components/AllProducts/FilterBar'
 import { Link } from "react-router-dom"; 
 import axios from 'axios';
+
 const AllProducts = () => {
   const [products, setProducts] = useState([]);
   const [selectedProduct, setSelectedProduct] = useState(null);
-  const[nike,setNike]=useState('')
+  // useEffect(() => {
+  //   fetchItemsUnderPrice();
+  // }, []);
+
+  const fetchItemsUnderPrice = async (sliderValue) => {
+    try {
+   
+      const response = await fetch(`http://localhost:5001/api/products/price/1/${sliderValue}`);
+      const newData = await response.json();
+      setProducts(newData);
+      console.log('Items under the price:', newData);
+    } catch (error) {
+      console.error('Error fetching items:', error);
+    }
+  };
+  
+  
+  
+  const handleBrand = async (brand) => {
+    try {
+      const res = await axios.get(
+        `http://localhost:5001/api/products/brand/${brand}`
+      );
+      setProducts(res.data);
+      console.log(res)
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const handleCategory = async (category) => {
+    try {
+      const res = await axios.get(
+        `http://localhost:5001/api/products/category/${category}`
+      );
+      setProducts(res.data,'ddddddddddddddddd');
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   useEffect(() => {
     const apiUrl = 'http://localhost:5001/api/products/get';
@@ -37,16 +76,17 @@ const AllProducts = () => {
   return (
     <div  className='flex justify-evenly'>
      <div className='mt-[0px]  w-[300px] '  >
-    <FilterBar />
+    <FilterBar handleBrand={handleBrand} handleCategory={handleCategory} fetchItemsUnderPrice={fetchItemsUnderPrice}  />
       </div>
     <div className='ml-[0px] mt-[0px]'>
     <div className="flex flex-wrap justify-center gap-8 ">
       {products.map((product) => (
         <div key={product.productID} className="border p-4 hover:scale-105 transition-transform">
-          <img src={product.imageUrl} alt={product.productName} className="w-[400px] h-[450px]  object-cover mb-2" />
+          <img src={product.imageUrl}  alt={product.productName} className="w-[400px] h-[450px]  object-cover mb-2" />
+        {console.log(product.imageUrl,'dfffdggdfnhgggggggggggggggggggggggggg')}
           <div className="text-white">
             <h2 className="text-xl font-bold mb-2">{product.productName}</h2>
-            <p className="text-white">${product.price}</p>
+            <p className="text-white">{product.price}$</p>
             <div className="flex items-center mt-2">
               <label className="container mr-2">
                 <input type="checkbox" className="hidden" />

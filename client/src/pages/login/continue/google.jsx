@@ -16,12 +16,10 @@ const Google = () => {
       const data = await signInWithPopup(auth, googleProvider);
       console.log(data.user);
 
-      // Assign values here within the .then() block
       const userEmail = data.user.email;
       const userDisplayName = data.user.displayName;
       const userPhotoURL = data.user.photoURL;
 
-      // Make the API call using async/await
       const response = await axios.post("http://localhost:5001/api/user/createUser", {
         userName: userDisplayName,
         profilePicture: userPhotoURL,
@@ -49,7 +47,7 @@ const Google = () => {
       navigate("/");
     } catch (error) {
       console.error("Error during Google sign-in:", error);
-      // Handle error as needed
+   
     }
   };
 

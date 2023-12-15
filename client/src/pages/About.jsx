@@ -18,7 +18,6 @@ const About = () => {
 
   return (
     <div>
-
       <section className="my-8 flex flex-col gap-5 items-center justify-center  mx-auto max-w-[40rem] text-white text-center">
         <p className="text-violet-700 underline">About us</p>
         <h2 className="text-3xl font-bold text-white mb-4 uppercase">
@@ -35,15 +34,6 @@ const About = () => {
             We believe in the transformative power of the right pair of shoes
             and aim to build a community of individuals who share our passion
             for fashion and functionality.
-
-      <section className="my-8 mx-auto text-white text-center">
-        <h2 className="text-2xl font-bold text-white mb-4">Who We Are</h2>
-        <p className="mb-4 text-white paragraph-box">
-          At B.A.T-SQUAD, we're not just a shoe retailer, we're a team of style enthusiasts dedicated to delivering quality and comfort. Our vision is to curate a collection that blends the latest trends with a commitment to customer satisfaction.
-        </p>
-        {showMoreWhoWeAre && (
-          <p>
-            We believe in the transformative  power of the right pair of shoes and aim to build a community of individuals who share our passion for fashion and functionalit
           </p>
         )}
         <button

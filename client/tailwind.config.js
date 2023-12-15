@@ -12,6 +12,9 @@ export default {
         "placeholder": "#a9a9a9"
       }
     },
+    screens: {
+      'iphone': {'min': '400px', 'max': '500px'},
+    }
   },
   plugins: [],
 }

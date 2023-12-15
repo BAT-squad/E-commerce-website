@@ -1,6 +1,8 @@
 import React from "react";
 
 const Posts = () => {
+  const currentUser = JSON.parse(localStorage.getItem('currentUser'))
+  console.log(currentUser);
   return (
     <section className="mt-[15%] gap-4 flex flex-col md:flex-row md:pl-[10%]">
       <div className="md:w-[300px] md:flex-3 bg-white bg-opacity-10 rounded-lg md:mr-4 mb-4">
@@ -57,11 +59,11 @@ const Posts = () => {
         <div className="mx-auto flex gap-2 items-center mb-4">
           <img
             className="h-9 w-9 rounded-full"
-            src="https://media.sproutsocial.com/uploads/2022/06/profile-picture.jpeg"
+            src={currentUser.profilePicture}
             alt=""
           />
           <div className="flex flex-col gap-1 items-start">
-            <h2 className="text-white text-sm md:text-lg">Bilel Bourgou</h2>
+            <h2 className="text-white text-sm md:text-lg">{currentUser.userName}</h2>
             <span className="text-xs text-gray-400 md:text-sm">2mn</span>
           </div>
         </div>

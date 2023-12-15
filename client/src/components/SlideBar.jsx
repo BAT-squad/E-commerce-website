@@ -41,7 +41,7 @@ export default function App() {
         className="transparent h-1.5 w-full cursor-pointer appearance-none rounded-lg border-transparent bg-neutral-200"
         min="0"
         max="1000"
-        step="50" // Adjust the step to match your desired increments
+        step="50"
         id="customRange3"
         value={sliderValue}
         onChange={handleSliderChange}

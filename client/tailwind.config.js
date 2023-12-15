@@ -13,11 +13,13 @@ export default {
                 "continue": "#a34cf8",
                 "facebook": "#1877F2",
                 "placeholder": "#a9a9a9"
-              }
+              },
+              screens: {
+                'iphone': {'min': '400px', 'max': '500px'},
+              },
     },
+
   },
-  screens: {
-          'iphone': {'min': '400px', 'max': '500px'},
-        },
+
   plugins: [],
 }

@@ -39,10 +39,11 @@ const Home = () => {
         <SiAdidas className="w-12 md:w-16 lg:w-20 h-12 md:h-16 lg:h-20 text-gray-500" />
         <SiPuma className="w-12 md:w-16 lg:w-20 h-12 md:h-16 lg:h-20 text-gray-500" />
       </div>
-      <div className="flex items-center justify-center space-x-12 gap-20 h-20 mt-4 md:mt-8 lg:mt-12">
-        <FaHandHoldingDollar className="w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10 text-violet-500" />
-        <FaCopyright className="w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10 text-violet-500" />
-        <FaArrowRightArrowLeft className="w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10 text-violet-500" />
+
+      <div className="flex items-center justify-center mt-4 space-x-60 mb-[60px]">
+        <FaHandHoldingDollar className="w-10 h-10 text-violet-500" />
+        <FaCopyright className="w-10 h-10 text-violet-500" />
+        <FaArrowRightArrowLeft className="w-10 h-10 text-violet-500" />
       </div>
       <Products />
       <div className="text-white text-2xl md:text-3xl lg:text-4xl mt-8 md:mt-10">

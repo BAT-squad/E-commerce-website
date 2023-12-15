@@ -67,8 +67,8 @@ const filterbyPrice=(req,res)=>{
 
 const filterB = (req,res)=>{
   // console.log(req.params);
-  const brandName = req.params.brandName
-  // console.log(brandName,"hhhhhh")
+  const brandName = req.params.id
+  console.log(brandName,"hhhhhh")
   filterbrand(brandName,(err,results)=>{
     if (err) {
       console.error(err,"filter brand");

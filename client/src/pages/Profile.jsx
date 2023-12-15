@@ -21,15 +21,13 @@ const Profile = () => {
   const [profilePic, setProfilePic] = useState("");
 
   useEffect(() => {
-    console.log('d')
     axios
       .get(`http://localhost:5001/api/user/get/${currentUser.email}`)
       .then((res) => {
-        console.log(res.data,'fffffff');
         const currentUserData = JSON.stringify(res.data[0]);
-        console.log(currentUserData)
         localStorage.setItem("currentUser", currentUserData);
-        console.log(currentUser);
+        setCoverPic(res.data[0].coverUrl);
+        setProfilePic(res.data[0].profilePicture);
       })
       .catch((error) => {
         console.error("Error fetching user data:", error);
@@ -69,11 +67,15 @@ const Profile = () => {
 
   const handleUpdateCoverPicClick = () => {
     axios
-      .put(`http://localhost:5001/api/user/update/cover-pic/${currentUser.userID}`, {
-        coverUrl: coverPic,
-      })
+      .put(
+        `http://localhost:5001/api/user/update/cover-pic/${currentUser.userID}`,
+        {
+          coverUrl: coverPic,
+        }
+      )
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
+    window.location.reload();
   };
 
   const uploadProfilePic = (file) => {
@@ -95,6 +97,8 @@ const Profile = () => {
         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
           console.log("File available at", downloadURL);
           setProfilePic(downloadURL);
+          currentUser.profilePicture = profilePic;
+          localStorage.setItem("currentUser", JSON.stringify(currentUser));
         });
       }
     );
@@ -108,14 +112,16 @@ const Profile = () => {
   };
 
   const handleUpdateProfilePicClick = () => {
-
     axios
-      .put(`http://localhost:5001/api/user/update/profile-pic/${currentUser.userID}`, {
-        coverUrl: coverPic,
-      })
+      .put(
+        `http://localhost:5001/api/user/update/profile-pic/${currentUser.userID}`,
+        {
+          profilePicture: profilePic,
+        }
+      )
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
-
+    window.location.reload();
   };
 
   return (
@@ -140,19 +146,13 @@ const Profile = () => {
             onClick={() => coverPicRef.current.click()}
             alt="..."
             className="cursor-pointer absolute top-0 w-full h-full object-cover rounded-lg"
-            src={
-              coverPic ||
-              "https://www.pearlizumi.com/cdn/shop/collections/BG_page_BG_Pattern-01_da3751ed-c5ad-4b19-9bbd-8300661fec90_1440x@2x.png?v=1691763757"
-            }
+            src={coverPic}
           />
           <div className="absolute bottom-[-15%] h-[120px] w-full  flex items-center justify-center">
             <div className="bg-white w-[120px] h-[120px] rounded-full p-1 ">
               <img
                 onClick={() => profilePicRef.current.click()}
-                src={
-                  profilePic ||
-                  "https://media.sproutsocial.com/uploads/2022/06/profile-picture.jpeg"
-                }
+                src={profilePic}
                 alt="Profile"
                 className="mx-auto my-auto rounded-full w-full h-full cursor-pointer"
               />

@@ -1,6 +1,4 @@
-import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
-import Products from "../components/products";
+import React from 'react'
 
 const Basket = () => {
   const { productID } = useParams();
@@ -26,16 +24,9 @@ const Basket = () => {
 
   return (
     <div>
-      {[1,2,3].map(Products =>{
-        <div>
-
-        <h1>{Products.productName}</h1>
-        <h1>{Products.price}</h1>
-        </div>
-      })}
-     <h1>baaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaasket</h1>
+      
     </div>
-  );
-};
+  )
+}
 
-export default Basket;
+export default Basket

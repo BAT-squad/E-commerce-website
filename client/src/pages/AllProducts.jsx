@@ -1,197 +1,119 @@
-import React, { useState } from "react";
-import {Card,Typography,List,ListItem,ListItemPrefix,Accordion,AccordionHeader,AccordionBody,} from "@material-tailwind/react";
-import SlideBar from "../components/SlideBar";
-import {PresentationChartBarIcon,ShoppingBagIcon} from "@heroicons/react/24/solid";
-import { ChevronRightIcon, ChevronDownIcon } from "@heroicons/react/24/outline";
-import axios from "axios";
+import React, { useState,useEffect } from 'react'
+import FilterBar from '../components/AllProducts/FilterBar'
+import { Link } from "react-router-dom"; 
+import axios from 'axios';
+
 const AllProducts = () => {
-  const [open, setOpen] = useState(0);
-  // const [brand,setBrand]=useState('')
-  const [dashboardContentVisible, setDashboardContentVisible] = useState({
-    1: true,
-    2: true,
-  });
+  const [products, setProducts] = useState([]);
+  const [selectedProduct, setSelectedProduct] = useState(null);
+  // useEffect(() => {
+  //   fetchItemsUnderPrice();
+  // }, []);
 
-  const handleOpen = (value) => {
-    setOpen(open === value ? 0 : value);
-    setDashboardContentVisible({
-      ...dashboardContentVisible,
-      [value]: !dashboardContentVisible[value],
-    });
+  const fetchItemsUnderPrice = async (sliderValue) => {
+    try {
+   
+      const response = await fetch(`http://localhost:5001/api/products/price/1/${sliderValue}`);
+      const newData = await response.json();
+      setProducts(newData);
+      console.log('Items under the price:', newData);
+    } catch (error) {
+      console.error('Error fetching items:', error);
+    }
   };
-  const handleBrand=async(brand)=>{
+  
+  
+  
+  const handleBrand = async (brand) => {
     try {
-      const res=await axios.get(`http://localhost:5001/api/products/brand/${brand}`)
-      console.log(res.data);
+      const res = await axios.get(
+        `http://localhost:5001/api/products/brand/${brand}`
+      );
+      setProducts(res.data);
+      console.log(res)
     } catch (error) {
       console.log(error);
     }
-  }
-  const handleCategory=async(category)=>{
+  };
+  const handleCategory = async (category) => {
     try {
-      const res=await axios.get(`http://localhost:5001/api/products/category/${category}`)
-      console.log(res.data);
+      const res = await axios.get(
+        `http://localhost:5001/api/products/category/${category}`
+      );
+      setProducts(res.data,'ddddddddddddddddd');
     } catch (error) {
       console.log(error);
     }
-  }
-  return (
-    <Card className="max-w-[20rem] p-4 shadow-xl bg-blue-gray-900/5">
-      <div className="mb-4 p-4">
-        <Typography variant="h5" color="blue-gray" className="text-white">
-          Filters
-        </Typography>
-      </div>
-      <List>
-        <Accordion
-          open={open === 1}
-          icon={
-            <ChevronDownIcon
-              strokeWidth={2.5}
-              className={`mx-auto h-4 w-4 transition-transform ${
-                open === 1 ? "rotate-180" : ""
-              }`}
-            />
-          }
-        >
-          <ListItem className="p-0" selected={open === 1}>
-            <AccordionHeader
-              onClick={() => handleOpen(1)}
-              className="border-b-0 p-3 flex items-center cursor-pointer transition-all duration-300 hover:bg-blue-gray-700"
-            >
-              <ListItemPrefix>
-                <PresentationChartBarIcon className="h-5 w-5 text-blue-gray-300" />
-              </ListItemPrefix>
-              <Typography
-                color="blue-gray"
-                className="ml-2 font-normal text-white"
-              >
-                Brand
-              </Typography>
-            </AccordionHeader>
-          </ListItem>
-          {dashboardContentVisible[1] && (
-            <AccordionBody className="py-1 ml-5">
-              <List className="p-0">
-                <ListItem  onClick={()=>{
-        
-                    console.log('clicked');
-                    handleBrand('NIKE')
-                    }}>
-                  <ListItemPrefix>
-                    <ChevronRightIcon
-                      strokeWidth={3}
-                      className="h-3 w-5 text-blue-gray-300"
-                    />
-                  </ListItemPrefix>
-                  <Typography color="blue-gray" className="ml-2 text-white">
-                    NIKE
-                  </Typography>
-                </ListItem>
-                <ListItem onClick={()=>{
-        
-        console.log('clicked');
-        handleBrand('ADIDAS')
-        }}>
-                  <ListItemPrefix>
-                    <ChevronRightIcon
-                      strokeWidth={3}
-                      className="h-3 w-5 text-blue-gray-300"
-                    />
-                  </ListItemPrefix>
-                  <Typography color="blue-gray" className="ml-2 text-white" >
-                    ADIDAS
-                  </Typography>
-                </ListItem>
-                <ListItem onClick={()=>{
-        
-        console.log('clicked');
-        handleBrand('PUMA')
-        }}>
-                  <ListItemPrefix>
-                    <ChevronRightIcon
-                      strokeWidth={3}
-                      className="h-3 w-5 text-blue-gray-300"
-                    />
-                  </ListItemPrefix>
-                  <Typography color="blue-gray" className="ml-2 text-white" >
-                  PUMA
-                  </Typography>
-                </ListItem>
-              </List>
-            </AccordionBody>
-          )}
-        </Accordion>
-        <Accordion
-          open={open === 2}
-          icon={
-            <ChevronDownIcon
-              strokeWidth={2.5}
-              className={`mx-auto h-4 w-4 transition-transform ${
-                open === 2 ? "rotate-180" : ""
-              }`}
-            />
-          }
-        >
-          <ListItem className="p-0" selected={open === 2}>
-            <AccordionHeader
-              onClick={() => handleOpen(2)}
-              className="border-b-0 p-3 flex items-center cursor-pointer transition-all duration-300 hover:bg-blue-gray-700"
-            >
-              <ListItemPrefix>
-                <ShoppingBagIcon className="h-5 w-5 text-blue-gray-300" />
-              </ListItemPrefix>
-              <Typography
-                color="blue-gray"
-                className="ml-2 font-normal text-white"
-              >
-                Category
-              </Typography>
-            </AccordionHeader>
-          </ListItem>
-          {dashboardContentVisible[2] && (
-            <AccordionBody className="py-1 ml-5">
-              <List className="p-0">
-                <ListItem onClick={()=>{
-                  console.log('shoes');
-                  handleCategory('Shoes')
-                }}>
-                  <ListItemPrefix>
-                    <ChevronRightIcon
-                      strokeWidth={3}
-                      className="h-3 w-5 text-blue-gray-300"
-                    />
-                  </ListItemPrefix>
-                  <Typography color="blue-gray" className="ml-2 text-white">
-                    Shoes
-                  </Typography>
-                </ListItem>
-                <ListItem onClick={()=>{
-                  console.log('Slipper');
-                  handleCategory('Slipper')
-                }}>
-                  <ListItemPrefix>
-                    <ChevronRightIcon
-                      strokeWidth={3}
-                      className="h-3 w-5 text-blue-gray-300"
-                    />
-                  </ListItemPrefix>
-                  <Typography color="blue-gray" className="ml-2 text-white">
-                  Slipper
-                  </Typography>
-                </ListItem>
-              </List>
-            </AccordionBody>
-          )}
-        </Accordion>
-        <ListItem className="mt-2">
-          <ListItemPrefix>
-            <SlideBar />
-          </ListItemPrefix>
-        </ListItem>
-      </List>
-    </Card>
-  );
-};
+  };
 
-export default AllProducts;
+  useEffect(() => {
+    const apiUrl = 'http://localhost:5001/api/products/get';
+  
+    axios.get(apiUrl)
+      .then(response => {
+        setProducts(response.data);
+      })
+      .catch(error => {
+        console.error('Error fetching data:', error);
+      });
+    // setProducts(products);
+  }, []);
+   const handleBuyNow = (productID) => {
+    const updatedProducts = products.map(product => {
+      if (product.productID === productID) {
+        return { ...product, like: !product.like };
+      }
+      return product;
+    });
+    
+    const product = updatedProducts.find((product) => product.productID === productID);
+    
+    setSelectedProduct(product);
+    setProducts(updatedProducts);
+    
+    console.log(`Buy Now clicked for product ID: ${productID}`);
+  };
+  return (
+    <div  className='flex justify-evenly'>
+     <div className='mt-[0px]  w-[300px] '  >
+    <FilterBar handleBrand={handleBrand} handleCategory={handleCategory} fetchItemsUnderPrice={fetchItemsUnderPrice}  />
+      </div>
+    <div className='ml-[0px] mt-[0px]'>
+    <div className="flex flex-wrap justify-center gap-8 ">
+      {products.map((product) => (
+        <div key={product.productID} className="border p-4 hover:scale-105 transition-transform">
+          <img src={product.imageUrl}  alt={product.productName} className="w-[400px] h-[450px]  object-cover mb-2" />
+        {console.log(product.imageUrl,'dfffdggdfnhgggggggggggggggggggggggggg')}
+          <div className="text-white">
+            <h2 className="text-xl font-bold mb-2">{product.productName}</h2>
+            <p className="text-white">{product.price}$</p>
+            <div className="flex items-center mt-2">
+              <label className="container mr-2">
+                <input type="checkbox" className="hidden" />
+                <svg
+                  id="Layer_1"
+                  version="1.0"
+                  viewBox="0 0 24 24"
+                  xmlSpace="preserve"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlnsXlink="http://www.w3.org/1999/xlink"
+                  className={`w-6 h-6 transition-transform fill-current text-gray-600 hover:scale-110 ${product.like ? 'text-red-500' : ''}`}
+                  onClick={() => handleBuyNow(product.productID)}
+                  >
+                  <path d="M16.4,4C14.6,4,13,4.9,12,6.3C11,4.9,9.4,4,7.6,4C4.5,4,2,6.5,2,9.6C2,14,12,22,12,22s10-8,10-12.4C22,6.5,19.5,4,16.4,4z"></path>
+                </svg>
+              </label>
+              <Link to="/basket" className=" bg-violet-600 rounded-full w-[190px] p-2 text-center hover:text-white shadow-white transform transition-all duration-500 ease-in-out hover:scale-110 hover:brightness-110 hover:animate-pulse active:animate-bounce ">
+                Buy Now
+              </Link>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+    </div>
+    </div>
+  )
+}
+
+export default AllProducts

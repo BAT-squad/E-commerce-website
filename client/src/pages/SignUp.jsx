@@ -50,19 +50,19 @@ const SignUp = () => {
   return (
     <div>
       <p className="text-transparent">.</p>
-      <div className="w-[90%] h-[550px] absolute top-[12%] left-[10%]">
-        <div className="">
+      <div className="w-[90%] h-[550px] absolute top-[12%] left-[10%] iphone:left-[-150px]">
+        <div className=" iphone:blockhidden">
           <img
             src={image}
             alt=""
             className="w-[20%] h-[400px] absolute left-[5%]"
           />
-          <p className="absolute font-sans font-semibold text-xl text-center w-[30%] h-[39px] top-[420px]  text-white">
+          <p className=" iphone:hidden absolute font-sans font-semibold text-xl text-center w-[30%] h-[39px] top-[420px]  text-white">
             Explore the world of meta fashion
           </p>
         </div>
-        <div className="w-[30%] h-[500px] absolute left-[40%] rounded-lg bg-login sm:float-left ">
-          <h1 className="font-bold leading-10 tracking-tighter text-center text-lg mr-64 mt-4 text-white">
+        <div className=" iphone:left-[60%] w-[30%] h-[500px] absolute left-[40%] rounded-lg bg-login sm:float-left iphone:w-[280px] ">
+          <h1 className="font-bold leading-10 tracking-tighter text-center text-lg mr-64 mt-4 text-white iphone:w-20">
             Sign Up
           </h1>
 
@@ -107,7 +107,7 @@ const SignUp = () => {
           <div className=" flex absolute top-[370px]">
             <div className="container mx-auto p-4 inline">
               <select
-                className="bg-transparent border-b-[1px]    inline text-placeholder border-input  p-2 w-12/12"
+                className="bg-transparent border-b-[1px]    inline text-placeholder border-input  p-2 w-12/12 iphone:w-9/12"
                 defaultValue=""
                 onChange={(e) => setMonth(e.target.value)}
               >
@@ -154,13 +154,13 @@ const SignUp = () => {
             </div>
             <input
               type="text"
-              className=" top-[-18px] ml-[103%] bg-transparent border-b-[1px] absolute inline border-input mt-12 text-white w-7/12"
+              className=" iphone:ml-[75%] top-[-18px] ml-[103%] bg-transparent border-b-[1px] absolute inline border-input mt-12 text-white w-7/12"
               placeholder="Day"
               onChange={(e) => setDay(e.target.value)}
             />
             <input
               type="text"
-              className=" top-[-18px] ml-[175%]   w-7/12 bg-transparent border-b-[1px] absolute inline border-input text-white mt-12 "
+              className=" iphone:w-5/12 iphone:ml-[140%] top-[-18px] ml-[175%]   w-7/12 bg-transparent border-b-[1px] absolute inline border-input text-white mt-12 "
               placeholder="Year"
               onChange={(e) => setYear(e.target.value)}
             />

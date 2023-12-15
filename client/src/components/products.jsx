@@ -15,8 +15,6 @@ const Products = () => {
       .catch((error) => {
         console.error("Error fetching data:", error);
       });
-
-    setProducts(products);
   }, []);
   const handleBuyNow = (productID) => {
     const updatedProducts = products.map((product) => {

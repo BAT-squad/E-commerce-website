@@ -45,7 +45,7 @@ const filterPrice=(minPrice,maxPrice,callback)=>{
 
 
 const filterbrand=(brand,callback)=>{
-  const query=`SELECT * FROM ecommerce.products inner join ecommerce.brands on ecommerce.products.brands_brandID=ecommerce.brands.brandID where brandName=?;`
+  const query=`SELECT products.productID , products.imageUrl , products.price , products.category ,brands.brandName FROM ecommerce.products inner join ecommerce.brands on ecommerce.products.brands_brandID=ecommerce.brands.brandID where brandName=?;`
   return connection.query(query,[brand],callback)
 }
 

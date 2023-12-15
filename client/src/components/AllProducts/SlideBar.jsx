@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 
 
-export default function App() {
-  const [sliderValue, setSliderValue] = useState(0);
+export default function SlideBar({fetchItemsUnderPrice}) {
+  const [sliderValue, setSliderValue] = useState(10000);
   const [data, setData] = useState([]);
 
   const handleSliderChange = (e) => {
@@ -10,22 +10,22 @@ export default function App() {
   };
 
   useEffect(() => {
-    fetchItemsUnderPrice();
+    fetchItemsUnderPrice(sliderValue);
   }, [sliderValue]);
 
-  const fetchItemsUnderPrice = async () => {
-    try {
+  // const fetchItemsUnderPrice = async () => {
+  //   try {
    
-      const response = await fetch(`http://localhost:5001/api/products/price/1/${sliderValue}`);
-      const newData = await response.json();
+  //     const response = await fetch(`http://localhost:5001/api/products/price/1/${sliderValue}`);
+  //     const newData = await response.json();
     
-      setData(newData);
+  //     setData(newData);
 
-      console.log('Items under the price:', newData);
-    } catch (error) {
-      console.error('Error fetching items:', error);
-    }
-  };
+  //     console.log('Items under the price:', newData);
+  //   } catch (error) {
+  //     console.error('Error fetching items:', error);
+  //   }
+  // };
 
   return (
     <div>
@@ -39,9 +39,9 @@ export default function App() {
       <input
         type="range"
         className="transparent h-1.5 w-full cursor-pointer appearance-none rounded-lg border-transparent bg-neutral-200"
-        min="0"
+        min="20"
         max="1000"
-        step="50"
+        step="10"
         id="customRange3"
         value={sliderValue}
         onChange={handleSliderChange}

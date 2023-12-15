@@ -1,5 +1,5 @@
 
-const { getAllProductsM, postproductsM, getOneProduct,filterCategory,filterPrice,filterbrand} = require('../models/products.models.js')
+const { getAllProductsM, postproductsM, getOneProduct,filterCategory,filterPrice,filterbrand,getNewTredings} = require('../models/products.models.js')
 
 
 
@@ -12,6 +12,17 @@ const getAllProductsC = (req, res) => {
         }
     })
 }
+
+const getNewTredingsC = (req, res) =>{
+  getNewTredings((err,results)=>{
+if (err) {
+  console.error(err, "Error fetching");
+} else {
+  res.json(results)
+}
+  })
+}
+
 const postproductsC = (req, res) => {
     const productData = req.body;  
     postproductsM(productData, (err, results) => {
@@ -79,4 +90,4 @@ const filterB = (req,res)=>{
   })
 
 }
-module.exports = { getAllProductsC, postproductsC,filterbycategory,filterbyPrice,filterB,getOneProductC }
+module.exports = { getAllProductsC, postproductsC,filterbycategory,filterbyPrice,filterB,getOneProductC ,getNewTredingsC}

@@ -1,7 +1,9 @@
 const express = require('express')
 const router = express.Router()
 
-const {getAllProductsC,postproductsC,filterbycategory, filterbyPrice, filterB,getOneProductC}= require("../controllers/products.home.controller")
+const {getAllProductsC,postproductsC,filterbycategory, filterbyPrice, filterB,getOneProductC,getNewTredingsC}= require("../controllers/products.home.controller")
+
+router.get('/products',getNewTredingsC)
 
 router.get('/get', getAllProductsC)
 router.post('/post', postproductsC)

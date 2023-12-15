@@ -183,10 +183,7 @@ const Profile = () => {
             </div>
           </div>
           <div className="text-gray-300 text-center md:w-[800px] md:mt-2 md:mx-auto  md:absolute md:bottom-[-55%] md:left-[23%]">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maxime
-            facere unde minus omnis debitis culpa excepturi vel laborum ea
-            fugiat ipsam quidem consequuntur, voluptatem a quasi provident
-            corporis exercitationem non!
+          {currentUser.bio}
           </div>
         </div>
       </div>

@@ -59,8 +59,10 @@ module.exports = {
     updateUserCoverPicController,
     updateUserProfilePicController,
     addUser: function (req, res) {
+        try{
         const salt = bcrypt.genSaltSync(10);
         const hash = bcrypt.hashSync(req.body.password, salt);
+        
 
         userModel.addUser(
             req.body.email,
@@ -71,19 +73,20 @@ module.exports = {
             req.body.bio,
             req.body.profilePicture,
             function (error, results) {
-                if (error) {
-                    console.log(error);
-                    res.status(500).json({ error: 'Internal Server Error' });
-                } else {
                     res.json(results); 
-                }
             }
-        );
+        )} catch(error){
+            throw error
+        }
     },
     login: function(req,res){
         userModel.login(req.body.email, function(err,results){
-            if(err) res.send(err)
-            else res.send(results)
+            try{
+            res.send(results)
+            }
+            catch(err){
+                throw err
+            }
         })
     }
 };

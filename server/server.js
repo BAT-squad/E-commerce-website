@@ -6,6 +6,7 @@ const app = express()
 const productrouter = require('./routes/products.router.js')
 const brandsRoute = require("./routes/brands.route.js")
 const postsRoute = require('./routes/post.route.js')
+const basket=require('./routes/basket.js')
 const PORT = 5001
 
 app.use(express.json())
@@ -16,6 +17,9 @@ app.use('/api/products',productrouter)
 app.use('/api/user',userRoute)
 app.use('/api/brands',brandsRoute)
 app.use('/api/posts',postsRoute)
+app.use('/api/basket',basket)
+
+
 
 
 

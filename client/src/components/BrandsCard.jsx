@@ -30,7 +30,7 @@ const BrandsCard = () => {
                 <p class="text-sm text-gray-400">
                   I can't start my day without a coffee cup
                 </p>
-                <div class=" w-full py-2 flex space-x-2 flex items-center justify-center px-10">
+                <div class=" w-full py-2 flex space-x-2  items-center justify-center px-10">
                   <button class="bg-violet-500 text-white font-semibold w-full p-2 rounded-xl ">
                     <span class="mr-2"></span>+ FOLLOW<span class="ml-2"></span>
                   </button>

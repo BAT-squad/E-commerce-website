@@ -1,33 +1,91 @@
-import React from "react";
+import React, { useRef, useState } from "react";
+import {
+  getStorage,
+  ref,
+  uploadBytesResumable,
+  getDownloadURL,
+} from "firebase/storage";
+import { app } from "../firebase.js";
+import axios from 'axios'
 
-const CreatePost = ({currentUser}) => {
+const CreatePost = ({ currentUser }) => {
+  const imageRef = useRef(null);
+  const [image, setImage] = useState("");
+  const [content, setContent] = useState("");
+
+  const uploadImage = (file) => {
+    const storage = getStorage(app);
+    const storageRef = ref(storage, file.name);
+    const uploadTask = uploadBytesResumable(storageRef, file);
+
+    uploadTask.on(
+      "state_changed",
+      (snapshot) => {
+        const progress =
+          (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+        console.log(`Upload is ${progress}% done`);
+      },
+      (error) => {
+        console.error("Upload error:", error);
+      },
+      () => {
+        getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+          console.log("File available at", downloadURL);
+          setImage(downloadURL);
+        });
+      }
+    );
+  };
+  const handleImageChange = (e) => {
+    const image = e.target.files[0];
+    if (image) {
+      uploadImage(image);
+    }
+  };
+
+  const handlePostClick = () => {
+    const post = {
+      content: content,
+      image: image,
+      userId: currentUser.userID,
+    };
+    axios.post("http://localhost:5001/api/posts/createPost", post)
+    .then((response) => {
+      console.log(response);
+    })
+    .catch((error) => {
+      console.log(error);
+    })
+    window.location.reload();
+  };
+
   return (
-    <div class="mb-10 mt-[15rem]">
-      <div class="bg-gray-500 bg-opacity-10 p-20 text-white max-w-full border border-gray-700 mx-auto rounded-lg py-1">
-        <div class="px-3 py-3 flex justify-center items-center border-b border-gray-700 relative">
-          <h2 class="text-xl font-bold text-center">Create Post</h2>
+    <div className="mb-10 mt-[15rem]">
+      <div className="bg-gray-500 bg-opacity-10 p-20 text-white max-w-full border border-gray-700 mx-auto rounded-lg py-1">
+        <div className="px-3 py-3 flex justify-center items-center border-b border-gray-700 relative">
+          <h2 className="text-xl font-bold text-center">Create Post</h2>
         </div>
 
-        <div class="px-3 py-3">
-          <div class="flex space-x-3 justify-start items-center">
-            <div class="w-12 h-12 cursor-pointer rounded-full overflow-hidden">
+        <div className="px-3 py-3">
+          <div className="flex space-x-3 justify-start items-center">
+            <div className="w-12 h-12 cursor-pointer rounded-full overflow-hidden">
               <a href="https://facebook.com/ShibbirAhmedRaihan">
                 <img
-                  class="w-full"
+                  className="w-full"
                   src={currentUser.profilePicture}
                   alt="MD. Shibbir Ahmed"
                 />
               </a>
             </div>
 
-            <div class="flex flex-col space-y-0.5 items-start">
-              <h2 class="font-semibold text-sm">{currentUser.userName}</h2>
+            <div className="flex flex-col space-y-0.5 items-start">
+              <h2 className="font-semibold text-sm">{currentUser.userName}</h2>
 
-              <div class="bg-gray-700 rounded-md px-1 flex space-x-0.5 py-1 items-center cursor-pointer">
+              <div className="bg-gray-700 rounded-md px-1 flex space-x-0.5 py-1 items-center cursor-pointer">
                 <div>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    class="h-4 w-4"
+                    className="h-4 w-4"
                     viewBox="0 0 20 20"
                     fill="currentColor"
                   >
@@ -39,12 +97,12 @@ const CreatePost = ({currentUser}) => {
                   </svg>
                 </div>
 
-                <span class="font-semibold text-xs">Public</span>
+                <span className="font-semibold text-xs">Public</span>
 
                 <div>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    class="h-4 w-4"
+                    className="h-4 w-4"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -61,22 +119,28 @@ const CreatePost = ({currentUser}) => {
             </div>
           </div>
 
-          <div class="my-4">
+          <div className="my-4">
             <textarea
+              id="content"
               rows="3"
               placeholder={`What's on your mind, ${currentUser.userName}?`}
-              class="w-full  bg-transparent resize-none text-2xl text-white outline-none placeholder-gray-400 focus:placeholder-gray-500"
+              className="w-full  bg-transparent resize-none text-2xl text-white outline-none placeholder-gray-400 focus:placeholder-gray-500"
+              onChange={(e) => {
+                setContent(e.target.value);
+                console.log(content);
+              }}
             ></textarea>
+            <img src={image} className="w-[20rem] rounded-lg" alt="" />
           </div>
 
-          <div class="flex justify-between items-center">
-            <div class="w-8 h-8 border-2 border-white rounded-lg font-semibold flex justify-center items-center cursor-pointer">
+          <div className="flex justify-between items-center">
+            <div className="w-8 h-8 border-2 border-white rounded-lg font-semibold flex justify-center items-center cursor-pointer">
               Aa
             </div>
-            <div class="text-gray-600 hover:text-gray-500 cursor-pointer">
+            <div className="text-gray-600 hover:text-gray-500 cursor-pointer">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="h-7 w-7"
+                className="h-7 w-7"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -91,13 +155,21 @@ const CreatePost = ({currentUser}) => {
             </div>
           </div>
 
-          <div class="border border-gray-700 rounded-full mt-5 px-3 py-2.5 flex justify-between items-center">
-            <div class="font-semibold cursor-pointer"></div>
-            <div class="flex space-x-0.5">
-              <div class="bg-transparent hover:bg-gray-700 p-1 rounded-full transition-colors cursor-pointer">
+          <div className="border border-gray-700 rounded-full mt-5 px-3 py-2.5 flex justify-between items-center">
+            <div className="font-semibold cursor-pointer"></div>
+            <div className="flex space-x-0.5">
+              <div className="bg-transparent hover:bg-gray-700 p-1 rounded-full transition-colors cursor-pointer">
+                <input
+                  ref={imageRef}
+                  onChange={handleImageChange}
+                  type="file"
+                  id="imageUrl"
+                  className="hidden"
+                />
                 <svg
+                  onClick={() => imageRef.current.click()}
                   xmlns="http://www.w3.org/2000/svg"
-                  class="h-7 w-7 text-green-500"
+                  className="h-7 w-7 text-green-500"
                   viewBox="0 0 20 20"
                   fill="currentColor"
                 >
@@ -109,10 +181,10 @@ const CreatePost = ({currentUser}) => {
                 </svg>
               </div>
 
-              <div class="bg-transparent hover:bg-gray-700 p-1 rounded-full transition-colors cursor-pointer">
+              <div className="bg-transparent hover:bg-gray-700 p-1 rounded-full transition-colors cursor-pointer">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  class="h-7 w-7 text-blue-500"
+                  className="h-7 w-7 text-blue-500"
                   viewBox="0 0 20 20"
                   fill="currentColor"
                 >
@@ -124,10 +196,10 @@ const CreatePost = ({currentUser}) => {
                 </svg>
               </div>
 
-              <div class="bg-transparent hover:bg-gray-700 p-1 rounded-full transition-colors cursor-pointer">
+              <div className="bg-transparent hover:bg-gray-700 p-1 rounded-full transition-colors cursor-pointer">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  class="h-7 w-7 text-yellow-500"
+                  className="h-7 w-7 text-yellow-500"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -141,10 +213,10 @@ const CreatePost = ({currentUser}) => {
                 </svg>
               </div>
 
-              <div class="bg-transparent hover:bg-gray-700 p-1 rounded-full transition-colors cursor-pointer">
+              <div className="bg-transparent hover:bg-gray-700 p-1 rounded-full transition-colors cursor-pointer">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  class="h-7 w-7 text-red-500"
+                  className="h-7 w-7 text-red-500"
                   viewBox="0 0 20 20"
                   fill="currentColor"
                 >
@@ -156,10 +228,10 @@ const CreatePost = ({currentUser}) => {
                 </svg>
               </div>
 
-              <div class="bg-transparent hover:bg-gray-700 p-1 rounded-full transition-colors cursor-pointer">
+              <div className="bg-transparent hover:bg-gray-700 p-1 rounded-full transition-colors cursor-pointer">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  class="h-7 w-7 text-red-700"
+                  className="h-7 w-7 text-red-700"
                   viewBox="0 0 20 20"
                   fill="currentColor"
                 >
@@ -171,10 +243,10 @@ const CreatePost = ({currentUser}) => {
                 </svg>
               </div>
 
-              <div class="bg-transparent hover:bg-gray-700 p-1 rounded-full transition-colors cursor-pointer">
+              <div className="bg-transparent hover:bg-gray-700 p-1 rounded-full transition-colors cursor-pointer">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  class="h-7 w-7 text-gray-500"
+                  className="h-7 w-7 text-gray-500"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -190,7 +262,12 @@ const CreatePost = ({currentUser}) => {
             </div>
           </div>
 
-          <button class="w-full bg-violet-500 mt-3 rounded-full py-4 text-gray-400 font-bold text-xl">
+          <button
+            onClick={() => {
+              handlePostClick();
+            }}
+            className="w-full bg-violet-500 mt-3 rounded-full py-4 text-white font-bold text-xl"
+          >
             Post
           </button>
         </div>

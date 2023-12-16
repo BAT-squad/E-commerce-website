@@ -83,7 +83,6 @@ const AllProducts = () => {
       {products.map((product) => (
         <div key={product.productID} className="border p-4 hover:scale-105 transition-transform">
           <img src={product.imageUrl}  alt={product.productName} className="w-[400px] h-[450px]  object-cover mb-2" />
-        {console.log(product.imageUrl,'dfffdggdfnhgggggggggggggggggggggggggg')}
           <div className="text-white">
             <h2 className="text-xl font-bold mb-2">{product.productName}</h2>
             <p className="text-white">{product.price}$</p>

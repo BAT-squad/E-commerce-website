@@ -1,7 +1,12 @@
 import React from "react";
 import { MdVerified } from "react-icons/md";
+import { useNavigate } from "react-router-dom";
+
 
 const BrandsCard = () => {
+  const navigate = useNavigate();
+  
+
   return (
     <div className="mt-10">
       <div class=" flex space-x-2 w-full rounded-lg overflow-hidden mx-auto justify-between px-20">
@@ -28,9 +33,9 @@ const BrandsCard = () => {
                   Adidas <MdVerified className="text-blue-500"/>
                 </span>
                 <p class="text-sm text-gray-400">
-                  I can't start my day without a coffee cup
+                Sport meets style with Adidas-where performance inspires fashion
                 </p>
-                <div class=" w-full py-2 flex space-x-2  items-center justify-center px-10">
+                <div class=" w-full py-2 flex space-x-2 flex items-center justify-center px-10">
                   <button class="bg-violet-500 text-white font-semibold w-full p-2 rounded-xl ">
                     <span class="mr-2"></span>+ FOLLOW<span class="ml-2"></span>
                   </button>
@@ -62,9 +67,9 @@ const BrandsCard = () => {
                   Nike <MdVerified className="text-blue-500"/>
                 </span>
                 <p class="text-sm text-gray-400">
-                  I can't start my day without a coffee cup
+                Just Do It. Be bold, be inspired, and be your own athlete.
                 </p>
-                <div class=" w-full py-2 flex space-x-2 flex items-center justify-center px-10">
+                <div class=" w-full py-2  space-x-2 flex items-center justify-center px-10">
                   <button class="bg-violet-500 text-white font-semibold w-full p-2 rounded-xl ">
                     <span class="mr-2"></span>+ FOLLOW<span class="ml-2"></span>
                   </button>
@@ -83,7 +88,7 @@ const BrandsCard = () => {
           <div class="  card__media--aside "></div>
           <div class="flex items-center p-4">
             <div class="relative flex flex-col items-center w-full">
-              <div class="h-24 w-24 md rounded-full relative avatar flex items-end justify-end text-purple-600 min-w-max absolute -top-16 flex bg-purple-200 text-purple-100 row-start-1 row-end-3 text-purple-650 ring-1 ring-white">
+              <div class="h-24 w-24 md rounded-full relative avatar  items-end justify-end text-purple-600 min-w-max absolute -top-16 flex bg-purple-200 text-purple-100 row-start-1 row-end-3 text-purple-650 ring-1 ring-white">
                 <img
                   class="h-24 w-24 md rounded-full object-fill relative"
                   src="http://tous-logos.com/wp-content/uploads/2017/09/logo-Lacoste.jpg"
@@ -96,7 +101,7 @@ const BrandsCard = () => {
                   Lacoste <MdVerified className="text-blue-500"/>
                 </span>
                 <p class="text-sm text-gray-400">
-                  I can't start my day without a coffee cup
+                 Timeless elegance, sporty sophistication
                 </p>
                 <div class=" w-full py-2 flex space-x-2 flex items-center justify-center px-10">
                   <button class="bg-violet-500 text-white font-semibold w-full p-2 rounded-xl ">

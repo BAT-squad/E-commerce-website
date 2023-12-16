@@ -11,6 +11,8 @@ import {
 } from "firebase/storage";
 import { app } from "../firebase.js";
 import axios from "axios";
+import CreatePost from "../components/CreatePost.jsx";
+import AllPhotos from "../components/AllPhotos.jsx";
 
 const Profile = () => {
   const currentUser = JSON.parse(localStorage.getItem("currentUser"));
@@ -125,7 +127,7 @@ const Profile = () => {
   };
 
   return (
-    <main className="p-9">
+    <main className="p-20">
       <div className="relative block h-[300px] rounded-lg">
         <div>
           <input
@@ -183,11 +185,13 @@ const Profile = () => {
             </div>
           </div>
           <div className="text-gray-300 text-center md:w-[800px] md:mt-2 md:mx-auto  md:absolute md:bottom-[-55%] md:left-[23%]">
-          {currentUser.bio}
+            {currentUser.bio}
           </div>
         </div>
       </div>
-      <Posts />
+      <CreatePost currentUser={currentUser} />
+      <AllPhotos />
+      <Posts currentUser={currentUser} />
     </main>
   );
 };

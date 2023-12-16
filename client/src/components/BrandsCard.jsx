@@ -1,7 +1,12 @@
 import React from "react";
 import { MdVerified } from "react-icons/md";
+import { useNavigate } from "react-router-dom";
+
 
 const BrandsCard = () => {
+  const navigate = useNavigate();
+  
+
   return (
     <div className="mt-10">
       <div class=" flex space-x-2 w-full rounded-lg overflow-hidden mx-auto justify-between px-20">
@@ -28,11 +33,13 @@ const BrandsCard = () => {
                   Adidas <MdVerified className="text-blue-500"/>
                 </span>
                 <p class="text-sm text-gray-400">
-                  I can't start my day without a coffee cup
+                Sport meets style with Adidas-where performance inspires fashion
                 </p>
                 <div class=" w-full py-2 flex space-x-2 flex items-center justify-center px-10">
-                  <button class="bg-violet-500 text-white font-semibold w-full p-2 rounded-xl ">
-                    <span class="mr-2"></span>+ FOLLOW<span class="ml-2"></span>
+                  <button class="bg-violet-500 text-white font-semibold w-full p-2 rounded-xl "
+                  >
+                    {/* <div>//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////</div> */}
+                    <span class="mr-2"></span> <a href="" target="_blank">+ FOLLOW</a><span class="ml-2"></span>
                   </button>
                 </div>
               </div>
@@ -62,7 +69,7 @@ const BrandsCard = () => {
                   Nike <MdVerified className="text-blue-500"/>
                 </span>
                 <p class="text-sm text-gray-400">
-                  I can't start my day without a coffee cup
+                Just Do It. Be bold, be inspired, and be your own athlete.
                 </p>
                 <div class=" w-full py-2 flex space-x-2 flex items-center justify-center px-10">
                   <button class="bg-violet-500 text-white font-semibold w-full p-2 rounded-xl ">
@@ -96,7 +103,7 @@ const BrandsCard = () => {
                   Lacoste <MdVerified className="text-blue-500"/>
                 </span>
                 <p class="text-sm text-gray-400">
-                  I can't start my day without a coffee cup
+                 Timeless elegance, sporty sophistication
                 </p>
                 <div class=" w-full py-2 flex space-x-2 flex items-center justify-center px-10">
                   <button class="bg-violet-500 text-white font-semibold w-full p-2 rounded-xl ">

@@ -28,7 +28,7 @@ const CreatorCard = () => {
                   Kanye west <MdVerified className="text-blue-500"/>
                 </span>
                 <p class="text-sm text-gray-400">
-                  I can't start my day without a coffee cup
+                Style is a way to say who you are without having to speak
                 </p>
                 <div class=" w-full py-2 flex space-x-2 flex items-center justify-center px-10">
                   <button class="bg-violet-500 text-white font-semibold w-full p-2 rounded-xl ">
@@ -62,7 +62,7 @@ const CreatorCard = () => {
                   Madison Beer <MdVerified className="text-blue-500"/>
                 </span>
                 <p class="text-sm text-gray-400">
-                  I can't start my day without a coffee cup
+                Elegance in every stitch, style in every step
                 </p>
                 <div class=" w-full py-2 flex space-x-2 flex items-center justify-center px-10">
                   <button class="bg-violet-500 text-white font-semibold w-full p-2 rounded-xl ">
@@ -96,7 +96,7 @@ const CreatorCard = () => {
                   John Wick <MdVerified className="text-blue-500"/>
                 </span>
                 <p class="text-sm text-gray-400">
-                  I can't start my day without a coffee cup
+                Fashion is the armor to survive the reality of everyday life
                 </p>
                 <div class=" w-full py-2 flex space-x-2 flex items-center justify-center px-10">
                   <button class="bg-violet-500 text-white font-semibold w-full p-2 rounded-xl ">

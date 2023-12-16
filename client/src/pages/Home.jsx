@@ -7,12 +7,16 @@ import { FaHandHoldingDollar, FaArrowRightArrowLeft } from "react-icons/fa6";
 import Products from "../components/products.jsx";
 import CreatorCard from "../components/CreatorCard.jsx";
 import BrandsCard from "../components/BrandsCard.jsx";
-import { FaPlus } from "react-icons/fa";
+import NewTrending from "../components/newTrending.jsx";
+
 const Home = () => {
   const navigate = useNavigate();
 
   const handleExploreClick = () => {
     navigate("/all-products");
+  };
+  const handleGetStartedClick = () => {
+    navigate("/login");
   };
 
   return (
@@ -213,7 +217,7 @@ const Home = () => {
           <p className="text-white font-semibold">Fast And Easy Transactions</p>
         </div>
       </div>
-      <Products/>
+      <Products />
       <div className="flex flex-col gap-4 p-4 mx-auto mt-[10rem] ">
         <h1 className="text-white text-6xl font-bold ">New & Trending</h1>
         <p className="text-gray-500">
@@ -224,42 +228,7 @@ const Home = () => {
         </p>
       </div>
 
-      {/*===========================FOR WAEL=============================================== */}
-
-      <div className="flex flex-wrap justify-center gap-8 ">
-        <div className="w-80 h-80 ">
-          <div className="mt-12 p-4 hover:scale-105 transition-transform bg-opacity-10 bg-white rounded-lg shadow w-80 h-80">
-            <img src="" alt="" className="w-50 h-40 object-cover mb-4" />
-            <div className="text-white">
-              <h2 className="text-xl font-bold mb-2"></h2>
-              <p className="text-white flex items-stretch"></p>
-              <div className="flex items-center mt-2">
-                <label className="container mr-2">
-                  <input type="checkbox" className="hidden" />
-                  <svg
-                    id="Layer_1"
-                    version="1.0"
-                    viewBox="0 0 24 24"
-                    xmlSpace="preserve"
-                    xmlns="http://www.w3.org/2000/svg"
-                    xmlnsXlink="http://www.w3.org/1999/xlink"
-                    className="w-6 h-6 transition-transform fill-current text-gray-600 hover:scale-110"
-                  >
-                    <path d="M16.4,4C14.6,4,13,4.9,12,6.3C11,4.9,9.4,4,7.6,4C4.5,4,2,6.5,2,9.6C2,14,12,22,12,22s10-8,10-12.4C22,6.5,19.5,4,16.4,4z"></path>
-                  </svg>
-                </label>
-              </div>
-              <Link
-                to="/basket"
-                className="text-white bg-violet-600 rounded-full w-[190px] p-2"
-              >
-                Buy Now
-              </Link>
-            </div>
-          </div>
-        </div>
-      </div>
-      {/*===========================FOR WAEL=============================================== */}
+      <NewTrending />
 
       <div className="flex flex-col gap-4 p-4 mx-auto mt-[10rem] ">
         <h1 className="text-white text-6xl font-bold ">Upcoming Creators</h1>
@@ -268,7 +237,7 @@ const Home = () => {
           inventore labore voluptas elig
         </p>
       </div>
-      <CreatorCard/>
+      <CreatorCard />
       <div className="flex flex-col gap-4 p-4 mx-auto mt-[10rem] ">
         <h1 className="text-white text-6xl font-bold ">Upcoming Brands</h1>
         <p className="text-gray-500">
@@ -276,7 +245,7 @@ const Home = () => {
           inventore labore voluptas elig
         </p>
       </div>
-      <BrandsCard/>
+      <BrandsCard />
       <div className="text-white text-2xl md:text-3xl lg:text-4xl  md:mt-[10rem]">
         Frequently Asked Questions
         <h1 className="text-gray-500 text-md md:text-xl lg:text-2xl">
@@ -323,7 +292,10 @@ const Home = () => {
         <h1 className="text-3xl text-white font-bold mb-10">
           Highest Quality Collection
         </h1>
-        <button className="text-white bg-gray-300 font-bold pl-6  pr-6 p-2 mt-4 rounded-full  ">
+        <button
+          className="text-white bg-gray-300 font-bold pl-6  pr-6 p-2 mt-4 rounded-full "
+          onClick={handleGetStartedClick}
+        >
           Get Started
         </button>
       </div>
@@ -332,3 +304,4 @@ const Home = () => {
 };
 
 export default Home;
+

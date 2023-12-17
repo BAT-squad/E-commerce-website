@@ -14,7 +14,7 @@ const BrandsCard = () => {
           <div class="w-full card__media">
             <img
               src="http://sguru.org/wp-content/uploads/2018/02/adidas_logo_Wallpaper_1366x768.jpg"
-              class="h-48 w-96 rounded-lg"
+              class="h-48 w-full rounded-lg"
             />
           </div>
           <div class="  card__media--aside "></div>

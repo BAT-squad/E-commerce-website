@@ -127,7 +127,7 @@ const Profile = () => {
   };
 
   return (
-    <main className="p-20">
+    <main className="p-[8rem]">
       <div className="relative block h-[300px] rounded-lg">
         <div>
           <input
@@ -169,7 +169,7 @@ const Profile = () => {
               </h1>
               <button
                 onClick={() => handleUpdateCoverPicClick()}
-                className="rounded-full md:h-9 md:w-9  bg-violet-700 p-3  items-center justify-center absolute md:bottom-[50%] md:left-[97%] "
+                className="rounded-full md:h-9 md:w-9  bg-violet-700 p-3  items-center justify-center absolute md:bottom-[50%] md:left-[96%] "
               >
                 <MdEdit className="text-white" />
               </button>
@@ -177,14 +177,14 @@ const Profile = () => {
                 onClick={() => {
                   navigate("/edit-profile");
                 }}
-                className="bg-violet-700 p-2 text-white text-sm rounded-full flex gap-2 justify-center items-center absolute bottom-[0] left-[92%]"
+                className="bg-violet-700 p-2 whitespace-nowrap text-white text-sm rounded-full flex gap-2 justify-center items-center absolute bottom-[0] left-[71.6rem]"
               >
                 <MdEdit className="text-white w-6" />
                 Edit profile
               </button>
             </div>
           </div>
-          <div className="text-gray-300 text-center md:w-[800px] md:mt-2 md:mx-auto  md:absolute md:bottom-[-55%] md:left-[23%]">
+          <div className="text-gray-300 text-center md:w-[800px] md:mt-2 md:mx-auto  md:absolute md:bottom-[-55%] md:left-[19%]">
             {currentUser.bio}
           </div>
         </div>

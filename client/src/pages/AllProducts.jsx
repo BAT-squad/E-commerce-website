@@ -75,7 +75,7 @@ const AllProducts = () => {
   };
   return (
     <div  className='flex justify-evenly'>
-     <div className='mt-[0px]  w-[300px] '  >
+     <div className='mt-[0px]  w-[300px] rounded-lg bg-white bg-opacity-5'  >
     <FilterBar handleBrand={handleBrand} handleCategory={handleCategory} fetchItemsUnderPrice={fetchItemsUnderPrice}  />
       </div>
     <div className='ml-[0px] mt-[0px]'>

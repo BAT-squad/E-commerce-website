@@ -75,7 +75,7 @@ const AllProducts = () => {
   };
   return (
     <div  className='flex justify-evenly'>
-     <div className='mt-[0px]  w-[300px] '  >
+     <div className='mt-[0px]  w-[300px] rounded-lg bg-white bg-opacity-5'  >
     <FilterBar handleBrand={handleBrand} handleCategory={handleCategory} fetchItemsUnderPrice={fetchItemsUnderPrice}  />
       </div>
     <div className='ml-[0px] mt-[0px]'>
@@ -83,7 +83,6 @@ const AllProducts = () => {
       {products.map((product) => (
         <div key={product.productID} className="border p-4 hover:scale-105 transition-transform">
           <img src={product.imageUrl}  alt={product.productName} className="w-[400px] h-[450px]  object-cover mb-2" />
-        {console.log(product.imageUrl,'dfffdggdfnhgggggggggggggggggggggggggg')}
           <div className="text-white">
             <h2 className="text-xl font-bold mb-2">{product.productName}</h2>
             <p className="text-white">{product.price}$</p>

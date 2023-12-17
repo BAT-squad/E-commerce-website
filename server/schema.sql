@@ -18,25 +18,6 @@ CREATE SCHEMA IF NOT EXISTS `ecommerce` DEFAULT CHARACTER SET utf8mb4 COLLATE ut
 USE `ecommerce` ;
 
 -- -----------------------------------------------------
--- Table `ecommerce`.`users`
-
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `ecommerce`.`users` (
-  `userID` INT NOT NULL AUTO_INCREMENT,
-  `email` VARCHAR(45) NOT NULL,
-  `userName` VARCHAR(45) NOT NULL,
-  `birthday` DATE  NULL,
-  `password` VARCHAR(200) NOT NULL,
-  `coverUrl` VARCHAR(450) NULL,
-  `bio` VARCHAR(255) NULL,
-  `profilePicture` VARCHAR(450) NULL,
-
-  PRIMARY KEY (`userID`),
-  UNIQUE INDEX `email_UNIQUE` (`email` ASC) VISIBLE)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
 -- Table `ecommerce`.`brands`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `ecommerce`.`brands` (
@@ -45,7 +26,7 @@ CREATE TABLE IF NOT EXISTS `ecommerce`.`brands` (
   `imageUrl` VARCHAR(450) NOT NULL,
   PRIMARY KEY (`brandID`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 2
+AUTO_INCREMENT = 4
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -68,6 +49,7 @@ CREATE TABLE IF NOT EXISTS `ecommerce`.`products` (
     FOREIGN KEY (`brands_brandID`)
     REFERENCES `ecommerce`.`brands` (`brandID`))
 ENGINE = InnoDB
+AUTO_INCREMENT = 5
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -79,15 +61,15 @@ CREATE TABLE IF NOT EXISTS `ecommerce`.`users` (
   `userID` INT NOT NULL AUTO_INCREMENT,
   `email` VARCHAR(45) NOT NULL,
   `userName` VARCHAR(45) NOT NULL,
-  `birthday` DATE NOT NULL,
-  `password` VARCHAR(45) NOT NULL,
+  `birthday` DATE NULL DEFAULT NULL,
+  `password` VARCHAR(200) NOT NULL,
   `coverUrl` VARCHAR(450) NULL DEFAULT NULL,
   `bio` VARCHAR(255) NULL DEFAULT NULL,
-  `profilePicUrl` VARCHAR(450) NULL,
+  `profilePicture` VARCHAR(450) NULL DEFAULT NULL,
   PRIMARY KEY (`userID`),
   UNIQUE INDEX `email_UNIQUE` (`email` ASC) VISIBLE)
 ENGINE = InnoDB
-AUTO_INCREMENT = 2
+AUTO_INCREMENT = 17
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -107,8 +89,11 @@ CREATE TABLE IF NOT EXISTS `ecommerce`.`basket` (
     REFERENCES `ecommerce`.`products` (`productID`),
   CONSTRAINT `fk_table1_users`
     FOREIGN KEY (`users_userID`)
-    REFERENCES `ecommerce`.`users` (`userID`))
+    REFERENCES `ecommerce`.`users` (`userID`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB
+AUTO_INCREMENT = 28
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 

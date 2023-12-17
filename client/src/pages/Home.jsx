@@ -1,52 +1,252 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { SiNike, SiAdidas, SiPuma } from "react-icons/si";
 import { FaCopyright } from "react-icons/fa";
 import { FaHandHoldingDollar, FaArrowRightArrowLeft } from "react-icons/fa6";
-import { BsBadge8K } from "react-icons/bs";
 import Products from "../components/products.jsx";
+import CreatorCard from "../components/CreatorCard.jsx";
+import BrandsCard from "../components/BrandsCard.jsx";
+import NewTrending from "../components/newTrending.jsx";
+
 const Home = () => {
   const navigate = useNavigate();
 
   const handleExploreClick = () => {
     navigate("/all-products");
   };
+  const handleGetStartedClick = () => {
+    navigate("/login");
+  };
 
   return (
-<div className="text-center p-8 md:p-12 lg:p-16 xl:p-20">
-      <div className="mb-8">
-        <h1 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl text-white font-bold mb-6">
-          Shoes are the Spirit of Fashion
-        </h1>
-        <p className="text-gray-500 mb-6">
-          Shoes define style, telling a unique story through personal choices. They are the essence of self-expression and individuality in fashion.
-        </p>
-        <button
-          className="text-white bg-violet-600 rounded-full p-2"
-          onClick={handleExploreClick}
-        >
-          Explore now
-        </button>
-        <div className=" flex gap-[37%]">
-       <p className="text-gray-500"> <BsBadge8K className=" text-white text-[200%]"/>Fashion Designer</p>
-       <p className="text-white w-20 h-20 text-2xl md:text-3xl lg:text-4xl xl:text-5xl text-white font-bold mb-6">100+</p>
-       <p className="text-gray-500 w-20 h-20">BRANDS</p>
-
+    <div className="text-center p-8 md:p-12 lg:p-16 xl:p-20">
+      <div className=" gap-[10rem] flex mb-8 px-[10%] ">
+        <div className=" flex flex-col max-w-[40%] gap-8 ">
+          <h1 className="text-2xl  md:text-3xl lg:text-4xl xl:text-5xl text-white text-left font-bold mb-6">
+            Shoes are the Spirit of Fashion
+          </h1>
+          <p className="text-gray-500 text-left mb-6">
+            Shoes define style, telling a unique story through personal choices.
+            They are the essence of self-expression and individuality in
+            fashion.
+          </p>
+          <button
+            className="text-white bg-violet-600 max-w-[10rem] rounded-full p-2"
+            onClick={handleExploreClick}
+          >
+            Explore now
+          </button>
+          <div className=" items-center w-[40rem] flex gap-[20%]">
+            <p className="text-gray-500 flex flex-col items-center">
+              {" "}
+              <h2 className="text-white font-bold text-3xl">100K</h2>
+              <p className="text-gray-500 text-sm"> Brands</p>
+            </p>
+            <p className="text-gray-500 flex flex-col items-center">
+              {" "}
+              <h2 className="text-white font-bold text-3xl">20K</h2>
+              <p className="text-gray-500 text-sm"> Fashion Designer</p>
+            </p>
+            <p className="text-gray-500 flex flex-col items-center">
+              {" "}
+              <h2 className="text-white font-bold text-3xl">60K</h2>
+              <p className="text-gray-500 text-sm"> Fashion Shows</p>
+            </p>
+          </div>
+        </div>
+        <div>
+          <div class="w-[40rem] mx-auto grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div class="grid gap-4">
+              <div>
+                <img
+                  class="h-auto max-w-full rounded-lg"
+                  src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/edb25474-7af5-4e32-966d-320b731d5079/air-jordan-1-brooklyn-womens-boots-kd9QhX.png"
+                  alt=""
+                />
+              </div>
+              <div>
+                <img
+                  class="h-auto max-w-full rounded-lg"
+                  src="https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/41gAEXLs5pL._AC_SY395_.jpg"
+                  alt=""
+                />
+              </div>
+              <div>
+                <img
+                  class="h-auto max-w-full rounded-lg"
+                  src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-2.jpg"
+                  alt=""
+                />
+              </div>
+            </div>
+            <div class="grid gap-4">
+              <div>
+                <img
+                  class="h-auto max-w-full rounded-lg"
+                  src="https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/71nErAL6TtL._AC_SX500_.jpg"
+                  alt=""
+                />
+              </div>
+              <div>
+                <img
+                  class="h-auto max-w-full rounded-lg"
+                  src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-4.jpg"
+                  alt=""
+                />
+              </div>
+              <div>
+                <img
+                  class="h-auto max-w-full rounded-lg"
+                  src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/0d77f14f-6c0b-470c-b23f-7e3e4428e92d/air-jordan-1-low-womens-shoes-rJrHLw.png"
+                  alt=""
+                />
+              </div>
+            </div>
+            <div class="grid gap-4">
+              <div>
+                <img
+                  class="h-auto max-w-full rounded-lg"
+                  src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-6.jpg"
+                  alt=""
+                />
+              </div>
+              <div>
+                <img
+                  class="h-auto max-w-full rounded-lg"
+                  src="https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/71-BqYqNGsL._AC_SX500_.jpg"
+                  alt=""
+                />
+              </div>
+              <div>
+                <img
+                  class="h-auto max-w-full rounded-lg"
+                  src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-8.jpg"
+                  alt=""
+                />
+              </div>
+            </div>
+            <div class="grid gap-4">
+              <div>
+                <img
+                  class="h-auto max-w-full rounded-lg"
+                  src="https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/711rcItb7qL._AC_SX395_.jpg"
+                  alt=""
+                />
+              </div>
+              <div>
+                <img
+                  class="h-auto max-w-full rounded-lg"
+                  src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-10.jpg"
+                  alt=""
+                />
+              </div>
+              <div>
+                <img
+                  class="h-auto max-w-full rounded-lg"
+                  src="https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/61UGLtG0jyL._AC_SX395_.jpg"
+                  alt=""
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <div className="flex justify-center space-x-8 md:space-x-12 gap-20 h-20 lg:space-x-20 mb-10">
+      <div className="flex justify-center space-x-8 md:space-x-12 gap-[10rem] h-20 lg:space-x-20 mb-10">
         <SiNike className="w-12 md:w-16 lg:w-20 h-12 md:h-16 lg:h-20 text-gray-500" />
         <SiAdidas className="w-12 md:w-16 lg:w-20 h-12 md:h-16 lg:h-20 text-gray-500" />
         <SiPuma className="w-12 md:w-16 lg:w-20 h-12 md:h-16 lg:h-20 text-gray-500" />
       </div>
-
-      <div className="flex items-center justify-center mt-4 space-x-60 mb-[60px]">
-        <FaHandHoldingDollar className="w-10 h-10 text-violet-500" />
-        <FaCopyright className="w-10 h-10 text-violet-500" />
-        <FaArrowRightArrowLeft className="w-10 h-10 text-violet-500" />
+      <div className=" p-4 mx-auto flex flex-col gap-8">
+        <h1 className="text-white text-5xl font-bold ">About Us</h1>
+        <p className="text-gray-500">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui deleniti
+          inventore labore voluptas eligendi modi rerum! <br /> Commodi nam
+          illum ex eveniet aliquid, quos vitae repellendus corrupti cupiditate,
+          suscipit distinctio hic.
+        </p>
+      </div>
+      <div className=" my-8 gap-10  flex items-center justify-center text-white px-[8rem]">
+        <div className=" w-1/2 flex items-center justify-end ">
+          <img
+            src="https://th.bing.com/th/id/R.83b14810ff18e25a6b2fd8d46d35b553?rik=ywb4ozkYOS6Gfw&pid=ImgRaw&r=0"
+            alt="What We Do"
+            className="w-70 h-60 object-fit flex-shrink-0 mr-4 rounded-lg"
+          />
+        </div>
+        <div className=" flex text-left justify-center w-[50rem]">
+          <div className="w-1/2 mr-4">
+            <h1 className="text-3xl text-left font-bold  text-white mb-4">
+              Fashion That Speaks
+            </h1>
+            <p className="text-left mb-4 text-gray-400 w-[30rem]">
+              Discover the perfect pair for every occasion at B.A.T-SQUAD. We
+              curate a diverse range of footwear, from timeless classics to the
+              latest fashion-forward designs. Our commitment to comfort is
+              unwavering, with each pair crafted from high-quality materials.
+              ...
+            </p>
+            <button className="bg-violet-600 p-2 px-4 rounded-full">
+              Show More
+            </button>
+          </div>
+        </div>
+      </div>
+      <div className=" p-4 mx-auto flex flex-col gap-8 ">
+        <h1 className="text-white text-4xl font-bold ">All Collection</h1>
+        <p className="text-gray-500">
+          ui deleniti inventore labore voluptas eligendi modi rerum! <br />{" "}
+          Commodi nam illum ex eveniet aliquid, quos vitae repellendus corrupti
+          cupiditate, suscipit distinctio hic.
+        </p>
+      </div>
+      <div className="gap-[15rem] flex items-center justify-center space-x-12 gap-20 h-20 mt-4 md:mt-8 lg:mt-20">
+        <div className="flex flex-col items-center justify-center">
+          {" "}
+          <FaHandHoldingDollar className="w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10 text-violet-500" />
+          <p className="text-white font-semibold">Exeptionnal Prices</p>
+        </div>
+        <div className="flex flex-col items-center justify-center">
+          {" "}
+          <FaCopyright className="w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10 text-violet-500" />
+          <p className="text-white font-semibold">Fast Payment</p>
+        </div>
+        <div className="flex flex-col items-center justify-center">
+          {" "}
+          <FaArrowRightArrowLeft className="w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10 text-violet-500" />
+          <p className="text-white font-semibold">Fast And Easy Transactions</p>
+        </div>
       </div>
       <Products />
-      <div className="text-white text-2xl md:text-3xl lg:text-4xl mt-8 md:mt-10">
+      <div className="flex flex-col gap-4 p-4 mx-auto mt-[10rem] ">
+        <h1 className="text-white text-6xl font-bold ">New & Trending</h1>
+        <p className="text-gray-500">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui deleniti
+          inventore labore voluptas eligendi modi rerum! <br /> Commodi nam
+          illum ex eveniet aliquid, quos vitae repellendus corrupti cupiditate,
+          suscipit distinctio hic.
+        </p>
+      </div>
+
+      <NewTrending />
+
+      <div className="flex flex-col gap-4 p-4 mx-auto mt-[10rem] ">
+        <h1 className="text-white text-6xl font-bold ">Upcoming Creators</h1>
+        <p className="text-gray-500">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui deleniti
+          inventore labore voluptas elig
+        </p>
+      </div>
+      <CreatorCard />
+      <div className="flex flex-col gap-4 p-4 mx-auto mt-[10rem] ">
+        <h1 className="text-white text-6xl font-bold ">Upcoming Brands</h1>
+        <p className="text-gray-500">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui deleniti
+          inventore labore voluptas elig
+        </p>
+      </div>
+      <BrandsCard />
+      <div className="text-white text-2xl md:text-3xl lg:text-4xl  md:mt-[10rem]">
         Frequently Asked Questions
         <h1 className="text-gray-500 text-md md:text-xl lg:text-2xl">
           Wanna Ask Something?
@@ -57,34 +257,34 @@ const Home = () => {
           <input
             type="text"
             className="w-[80%] bg-transparent mb-5 pb-4 border-b-[1px] border-input placeholder:text-gray-500 text-white w-[26%] "
-            placeholder="what is in your mind                                                                        +"
+            placeholder="what is in your mind ?                                                                                      +"
           />
           <input
             type="text"
             className="w-[80%] bg-transparent mb-5 pb-4 border-b-[1px] border-input placeholder:text-gray-500 text-white w-[26%] "
-            placeholder="what is in your mind                                                                        +"
+            placeholder="what is in your mind ?                                                                                      +"
           />
           <input
             type="text"
             className="w-[80%] bg-transparent mb-5 pb-4 border-b-[1px] border-input placeholder:text-gray-500 text-white w-[26%] "
-            placeholder="what is in your mind                                                                        +"
+            placeholder="what is in your mind ?                                                                                      +"
           />
         </div>
         <div className="  flex flex-col flex-1 justify-center items-center">
           <input
             type="text"
             className="w-[80%] bg-transparent mb-5 pb-4 border-b-[1px] border-input placeholder:text-gray-500 text-white w-[26%] "
-            placeholder="what is in your mind                                                                        +"
+            placeholder="what is in your mind ?                                                                                      +"
           />
           <input
             type="text"
             className="w-[80%] bg-transparent mb-5 pb-4 border-b-[1px] border-input placeholder:text-gray-500 text-white w-[26%] "
-            placeholder="what is in your mind                                                                        +"
+            placeholder="what is in your mind ?                                                                                      +"
           />
           <input
             type="text"
             className="w-[80%] bg-transparent mb-5 pb-4 border-b-[1px] border-input placeholder:text-gray-500 text-white w-[26%] "
-            placeholder="what is in your mind                                                                        +"
+            placeholder="what is in your mind ?                                                                                      +"
           />
         </div>
       </div>
@@ -92,7 +292,10 @@ const Home = () => {
         <h1 className="text-3xl text-white font-bold mb-10">
           Highest Quality Collection
         </h1>
-        <button className="text-white bg-gray-300 font-bold pl-6  pr-6 p-2 mt-4 rounded-full  ">
+        <button
+          className="text-white bg-gray-300 font-bold pl-6  pr-6 p-2 mt-4 rounded-full "
+          onClick={handleGetStartedClick}
+        >
           Get Started
         </button>
       </div>
@@ -101,3 +304,4 @@ const Home = () => {
 };
 
 export default Home;
+

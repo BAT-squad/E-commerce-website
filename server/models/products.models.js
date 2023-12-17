@@ -25,6 +25,11 @@ const getOneProduct = (id,callback)=>{
   return connection.query(query, values, callback);
 }
 
+const getNewTredings = (callback)=>{
+  const query = 'SELECT * FROM products WHERE new = 1'
+  return connection.query(query,callback);
+}
+
 
 
 const filterCategory = (category, callback) => {
@@ -46,5 +51,5 @@ const filterbrand=(brand,callback)=>{
 
 
 
-module.exports = { getAllProductsM, postproductsM ,filterCategory,filterPrice,filterbrand ,getOneProduct}
+module.exports = { getAllProductsM, postproductsM ,filterCategory,filterPrice,filterbrand ,getOneProduct,getNewTredings}
 

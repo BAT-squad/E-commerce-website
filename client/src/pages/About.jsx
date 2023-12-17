@@ -30,7 +30,7 @@ const About = () => {
           to customer satisfaction.
         </p>
         {showMoreWhoWeAre && (
-          <p>
+          <p className="mb-4 text-gray-400">
             We believe in the transformative power of the right pair of shoes
             and aim to build a community of individuals who share our passion
             for fashion and functionality.
@@ -57,7 +57,7 @@ const About = () => {
               ...
             </p>
             {showMoreWhatWeDo && (
-              <p>
+              <p className="mb-4 text-gray-400">
                 Shopping with us is an experience tailored to your lifestyle,
                 offering a seamless online platform and exceptional customer
                 support. Step into style, comfort, and confidence with
@@ -73,32 +73,56 @@ const About = () => {
           </div>
         </div>
         <div className="w-1/2">
-          <img
-            src="https://tse2.mm.bing.net/th?id=OIP.FJviZswYgEEIPy_IuytkWwHaEK&pid=Api&P=0&h=220"
-            alt="What We Do"
-            className="w-80 h-80 object-fit flex-shrink-0 mr-4 rounded-lg"
-          />
+          <div className=" w-[30rem] relative">
+            <img
+              className="h-80 w-96 left-[50px] top-[50px] absolute rounded-lg shadow-lg"
+              src="https://www.soccerbible.com/media/120836/copa-sense-sb-6.jpg"
+              alt=""
+            />
+            <img
+              className="h-80 w-96 left-[25px] top-[25px] absolute rounded-lg shadow-lg"
+              src="http://images.solecollector.com/complex/image/upload/chub70dc74fqtfyf2a4j.jpg"
+              alt=""
+            />
+            <img
+              className="h-80 w-96 left-0 top-0 absolute rounded-lg shadow-lg"
+              src="https://i.pinimg.com/originals/e9/7f/04/e97f042615694ee5b0b109f57367235f.jpg"
+              alt=""
+            />
+          </div>
         </div>
       </section>
 
-      <section className=" mx-auto flex max-w-[90rem] items-center text-white">
+      <section className=" mx-auto mt-20 flex max-w-[90rem] items-center text-white">
         <div className="w-1/2">
-          <img
-            src="https://tse2.mm.bing.net/th?id=OIP.FJviZswYgEEIPy_IuytkWwHaEK&pid=Api&P=0&h=220"
-            alt="What We Do"
-            className="w-80 h-80 object-fit flex-shrink-0 mr-4 rounded-lg"
-          />
+        <div className="h-80 w-[30rem] relative">
+            <img
+              className="h-80 w-96 left-[50px] top-[50px] absolute rounded-lg shadow-lg"
+              src="https://www.soccerbible.com/media/120836/copa-sense-sb-6.jpg"
+              alt=""
+            />
+            <img
+              className="h-80 w-96 left-[25px] top-[25px] absolute rounded-lg shadow-lg"
+              src="http://images.solecollector.com/complex/image/upload/chub70dc74fqtfyf2a4j.jpg"
+              alt=""
+            />
+            <img
+              className="h-80 w-96 left-0 top-0 absolute rounded-lg shadow-lg"
+              src="http://mindthehype.com/wp-content/uploads/2015/03/Crampons-Nike-Mercurial-Superfly-CR7-Silverware-1.jpg"
+              alt=""
+            />
+          </div>
         </div>
         <div>
           <h1 className="text-2xl font-bold text-white mb-4">When We Start</h1>
-          <p className="mb-4 text-gray-500">
+          <p className="mb-4 text-gray-400">
             Discover the perfect pair for every occasion at B.A.T-SQUAD. We
             curate a diverse range of footwear, from timeless classics to the
             latest fashion-forward designs. Our commitment to comfort is
             unwavering, with each pair crafted from high-quality materials. ...
           </p>
           {showMoreWhenWeStart && (
-            <p>
+            <p className="mb-4 text-gray-400">
               Shopping with us is an experience tailored to your lifestyle,
               offering a seamless online platform and exceptional customer
               support. Step into style, comfort, and confidence with

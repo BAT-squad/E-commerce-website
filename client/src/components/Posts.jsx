@@ -19,7 +19,7 @@ const Posts = ({ currentUser }) => {
     <>
       {posts.map((post) => {
         return (
-          <div class=" h-[35rem] w-[60rem] float-right mt-10">
+          <div class=" h-[35rem] w-[50rem] float-right mt-10">
             <div class="bg-gray-500 bg-opacity-10 max-w-full max-h-full mx-auto text-gray-100 rounded-md overflow-hidden">
               <div class="p-3 flex justify-between items-center">
                 <a

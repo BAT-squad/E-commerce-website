@@ -14,7 +14,7 @@ const BrandsCard = () => {
           <div class="w-full card__media">
             <img
               src="http://sguru.org/wp-content/uploads/2018/02/adidas_logo_Wallpaper_1366x768.jpg"
-              class="h-48 w-96 rounded-lg"
+              class="h-48 w-full rounded-lg"
             />
           </div>
           <div class="  card__media--aside "></div>
@@ -36,10 +36,8 @@ const BrandsCard = () => {
                 Sport meets style with Adidas-where performance inspires fashion
                 </p>
                 <div class=" w-full py-2 flex space-x-2 flex items-center justify-center px-10">
-                  <button class="bg-violet-500 text-white font-semibold w-full p-2 rounded-xl "
-                  >
-                    {/* <div>//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////</div> */}
-                    <span class="mr-2"></span> <a href="" target="_blank">+ FOLLOW</a><span class="ml-2"></span>
+                  <button class="bg-violet-500 text-white font-semibold w-full p-2 rounded-xl ">
+                    <span class="mr-2"></span>+ FOLLOW<span class="ml-2"></span>
                   </button>
                 </div>
               </div>
@@ -71,7 +69,7 @@ const BrandsCard = () => {
                 <p class="text-sm text-gray-400">
                 Just Do It. Be bold, be inspired, and be your own athlete.
                 </p>
-                <div class=" w-full py-2 flex space-x-2 flex items-center justify-center px-10">
+                <div class=" w-full py-2  space-x-2 flex items-center justify-center px-10">
                   <button class="bg-violet-500 text-white font-semibold w-full p-2 rounded-xl ">
                     <span class="mr-2"></span>+ FOLLOW<span class="ml-2"></span>
                   </button>
@@ -90,7 +88,7 @@ const BrandsCard = () => {
           <div class="  card__media--aside "></div>
           <div class="flex items-center p-4">
             <div class="relative flex flex-col items-center w-full">
-              <div class="h-24 w-24 md rounded-full relative avatar flex items-end justify-end text-purple-600 min-w-max absolute -top-16 flex bg-purple-200 text-purple-100 row-start-1 row-end-3 text-purple-650 ring-1 ring-white">
+              <div class="h-24 w-24 md rounded-full relative avatar  items-end justify-end text-purple-600 min-w-max absolute -top-16 flex bg-purple-200 text-purple-100 row-start-1 row-end-3 text-purple-650 ring-1 ring-white">
                 <img
                   class="h-24 w-24 md rounded-full object-fill relative"
                   src="http://tous-logos.com/wp-content/uploads/2017/09/logo-Lacoste.jpg"

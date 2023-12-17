@@ -20,9 +20,6 @@ app.use('/api/posts',postsRoute)
 app.use('/api/basket',basket)
 
 
-
-
-
 app.listen(PORT,()=>{
     console.log(`Server running on port http://localhost:${PORT}`);
 })

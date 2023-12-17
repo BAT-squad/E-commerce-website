@@ -257,34 +257,34 @@ const Home = () => {
           <input
             type="text"
             className="w-[80%] bg-transparent mb-5 pb-4 border-b-[1px] border-input placeholder:text-gray-500 text-white w-[26%] "
-            placeholder="what is in your mind                                                                        +"
+            placeholder="what is in your mind ?                                                                                      +"
           />
           <input
             type="text"
             className="w-[80%] bg-transparent mb-5 pb-4 border-b-[1px] border-input placeholder:text-gray-500 text-white w-[26%] "
-            placeholder="what is in your mind                                                                        +"
+            placeholder="what is in your mind ?                                                                                      +"
           />
           <input
             type="text"
             className="w-[80%] bg-transparent mb-5 pb-4 border-b-[1px] border-input placeholder:text-gray-500 text-white w-[26%] "
-            placeholder="what is in your mind"
+            placeholder="what is in your mind ?                                                                                      +"
           />
         </div>
         <div className="  flex flex-col flex-1 justify-center items-center">
           <input
             type="text"
             className="w-[80%] bg-transparent mb-5 pb-4 border-b-[1px] border-input placeholder:text-gray-500 text-white w-[26%] "
-            placeholder="what is in your mind                                                                        +"
+            placeholder="what is in your mind ?                                                                                      +"
           />
           <input
             type="text"
             className="w-[80%] bg-transparent mb-5 pb-4 border-b-[1px] border-input placeholder:text-gray-500 text-white w-[26%] "
-            placeholder="what is in your mind                                                                        +"
+            placeholder="what is in your mind ?                                                                                      +"
           />
           <input
             type="text"
             className="w-[80%] bg-transparent mb-5 pb-4 border-b-[1px] border-input placeholder:text-gray-500 text-white w-[26%] "
-            placeholder="what is in your mind                                                                        +"
+            placeholder="what is in your mind ?                                                                                      +"
           />
         </div>
       </div>

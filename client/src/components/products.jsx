@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+
 const Products = () => {
   const [products, setProducts] = useState([]);
   const [selectedProduct, setSelectedProduct] = useState(null);
+  const [showAlert, setShowAlert] = useState(false);
   const currentUser = JSON.parse(localStorage.getItem("currentUser"));
   const userId = currentUser.userID;
   const AddToBasket = (productId) => {
     const obj = { users_userID: userId, products_productID: productId };
-    console.log(obj, "testttttt");
     axios
       .post("http://localhost:5001/api/basket/add", obj)
       .then(() => console.log("done"))
@@ -28,6 +29,7 @@ const Products = () => {
         console.error("Error fetching data:", error);
       });
   }, []);
+
   const handleBuyNow = (productID) => {
     const updatedProducts = products.map((product) => {
       if (product.productID === productID) {
@@ -42,12 +44,20 @@ const Products = () => {
 
     setSelectedProduct(product);
     setProducts(updatedProducts);
+    setShowAlert(true);
 
     console.log(`Buy Now clicked for product ID: ${productID}`);
   };
 
   return (
     <>
+      {showAlert && (
+        <div className="bg-green-500 text-white p-2 fixed bottom-0 right-0 m-4 rounded-md">
+          {selectedProduct.like
+            ? `Added ${selectedProduct.productName} to favorites!`
+            : `Removed ${selectedProduct.productName} from favorites!`}
+        </div>
+      )}{" "}
       <div className=" flex justify-around mt-[10rem]">
         <button className="bg-violet-700 text-white font-semibold p-2 rounded-lg  px-8">
           All Collections
@@ -104,14 +114,14 @@ const Products = () => {
                     >
                       <path d="M16.4,4C14.6,4,13,4.9,12,6.3C11,4.9,9.4,4,7.6,4C4.5,4,2,6.5,2,9.6C2,14,12,22,12,22s10-8,10-12.4C22,6.5,19.5,4,16.4,4z"></path>
                     </svg>
-                    <button
-                      className="text-white bg-violet-600 rounded-full w-[190px] p-2"
+                            <button
+                          className="text-white bg-violet-600 rounded-full w-[190px] p-2"
                       onClick={() => {
                         AddToBasket(product.productID);
                       }}
-                    >
-                      Buy Now
-                    </button>
+                        >
+                          Buy Now
+                        </button>
                   </div>
                 </div>
               </div>

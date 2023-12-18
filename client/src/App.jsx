@@ -98,6 +98,7 @@ const router = createBrowserRouter([
       <div>
         <Header />
         <Basket/>
+   
       </div>
     )
   },

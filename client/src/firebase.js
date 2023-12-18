@@ -3,13 +3,13 @@ import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import {getAuth,GoogleAuthProvider,FacebookAuthProvider,OAuthProvider} from "firebase/auth"
 const firebaseConfig = {
-  apiKey: import.meta.env.VITE_FIREBASE_PRIVATE_KEY,
-  authDomain: import.meta.env.VITE_FIREBASE_AUTHDOMAIN,
-  projectId: import.meta.env.VITE_FIREBASE_PROJECTID,
-  storageBucket: import.meta.env.VITE_FIREBASE_STORAGEBUCKET,
-  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGINGSENDERID,
-  appId: import.meta.env.VITE_FIREBASE_APPID,
-  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENTID
+  apiKey: "AIzaSyAkT3Go2KQuwAgbvOk5xchffAgD-iqFrrA",
+  authDomain: "e-commerce-794f5.firebaseapp.com",
+  projectId: "e-commerce-794f5",
+  storageBucket: "e-commerce-794f5.appspot.com",
+  messagingSenderId: "489457441741",
+  appId: "1:489457441741:web:793a2480e92589267e4284",
+  measurementId: "G-9NG3W4H672"
 };
 // console.log(getAuth)
 

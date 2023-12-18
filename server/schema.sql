@@ -132,6 +132,25 @@ ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
+INSERT INTO `ecommerce`.`brands` (`brandName`, `imageUrl`) 
+VALUES
+('Brand A', 'https://neondeco.fr/cdn/shop/files/neon-nike-cyan.jpg?v=1686754200&width=1445');
+
+
+
+INSERT INTO `ecommerce`.`products` (`productName`, `price`, `category`, `like`, `imageUrl`, `brands_brandID`, `new`) 
+VALUES
+('Product 1', 49.99, 'Electronics', 5, 'https://images.pexels.com/photos/18368138/pexels-photo-18368138/free-photo-of-mode-chaussures-style-marque.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', 1, 1);
+
+
+INSERT INTO `ecommerce`.`basket` (`users_userID`, `products_productID`) 
+VALUES
+(89, 1);
+
+
+
+
+
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;

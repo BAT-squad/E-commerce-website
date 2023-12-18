@@ -2,7 +2,7 @@ import React from "react";
 import { FaInstagram } from "react-icons/fa";
 import { FaYoutube } from "react-icons/fa";
 import { FaDiscord } from "react-icons/fa";
-
+import { FaTwitter } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 
 const Footer = () => {
@@ -29,7 +29,7 @@ const Footer = () => {
             Admin
           </h2>
           <address className="text-gray-600">
-            RBK sousse
+             SOMEWHERE IN THE EARTH
             <br />
             <a className="text-blue-400" href="mailto:">
               Email Us
@@ -106,6 +106,7 @@ const Footer = () => {
               <FaYoutube  className="w-10 h-8"/>
               <FaDiscord className="w-10 h-8" />
               <FaInstagram className="w-10 h-8"/>
+              <FaTwitter className="w-10 h-8"/>
               </div>
             </p>
           </div>

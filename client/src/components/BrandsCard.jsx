@@ -71,8 +71,7 @@ const BrandsCard = () => {
                 </p>
                 <div class=" w-full py-2  space-x-2 flex items-center justify-center px-10">
                   <button class="bg-violet-500 text-white font-semibold w-full p-2 rounded-xl ">
-                    <span class="mr-2"></span>+ FOLLOW<span class="ml-2"></span>
-                  </button>
+<span class="mr-2"></span> <a href="https://www.instagram.com/nike/" target="_blank">+ FOLLOW</a><span class="ml-2"></span>                  </button>
                 </div>
               </div>
             </div>
@@ -105,8 +104,7 @@ const BrandsCard = () => {
                 </p>
                 <div class=" w-full py-2 flex space-x-2 flex items-center justify-center px-10">
                   <button class="bg-violet-500 text-white font-semibold w-full p-2 rounded-xl ">
-                    <span class="mr-2"></span>+ FOLLOW<span class="ml-2"></span>
-                  </button>
+                  <span class="mr-2"></span> <a href="https://www.instagram.com/lacoste/" target="_blank">+ FOLLOW</a><span class="ml-2"></span>                  </button>
                 </div>
               </div>
             </div>

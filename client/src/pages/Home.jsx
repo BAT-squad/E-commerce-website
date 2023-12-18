@@ -68,7 +68,7 @@ const Home = () => {
               <div>
                 <img
                   class="h-auto max-w-full rounded-lg"
-                  src="https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/41gAEXLs5pL._AC_SY395_.jpg"
+                  src="https://3.bp.blogspot.com/-FhZLokC6kG0/V1r7tdkz_pI/AAAAAAAA5Q4/GGrL6XyqOGMlmu1JcjVjIseCHEIxLKx-gCLcB/s1600/adidas-special-euro-2016-ace-16-purecontrol-boots-paul-pogba-2.jpg"
                   alt=""
                 />
               </div>
@@ -84,7 +84,7 @@ const Home = () => {
               <div>
                 <img
                   class="h-auto max-w-full rounded-lg"
-                  src="https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/71nErAL6TtL._AC_SX500_.jpg"
+                  src="https://redsneaker.ru/components/com_jshopping/files/img_products/15887/adidas-yeezy-451-15887-3.jpg"
                   alt=""
                 />
               </div>
@@ -114,7 +114,7 @@ const Home = () => {
               <div>
                 <img
                   class="h-auto max-w-full rounded-lg"
-                  src="https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/71-BqYqNGsL._AC_SX500_.jpg"
+                  src="https://www.kicksonfire.com/wp-content/uploads/2017/05/air-jordan-4-pure-money-1.jpg?x56094"
                   alt=""
                 />
               </div>
@@ -160,10 +160,12 @@ const Home = () => {
       <div className=" p-4 mx-auto flex flex-col gap-8">
         <h1 className="text-white text-5xl font-bold ">About Us</h1>
         <p className="text-gray-500">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui deleniti
-          inventore labore voluptas eligendi modi rerum! <br /> Commodi nam
-          illum ex eveniet aliquid, quos vitae repellendus corrupti cupiditate,
-          suscipit distinctio hic.
+        At B.A.T-SQUAD, we're not just a shoe retailer,
+         we're a team of style enthusiasts dedicated
+          to delivering quality and comfort.
+           Our vision is to curate a collection 
+          that blends the latest trends with 
+          a commitment to customer satisfaction.
         </p>
       </div>
       <div className=" my-8 gap-10  flex items-center justify-center text-white px-[8rem]">
@@ -184,7 +186,7 @@ const Home = () => {
               curate a diverse range of footwear, from timeless classics to the
               latest fashion-forward designs. Our commitment to comfort is
               unwavering, with each pair crafted from high-quality materials.
-              ...
+        
             </p>
             <button className="bg-violet-600 p-2 px-4 rounded-full">
               Show More
@@ -195,9 +197,8 @@ const Home = () => {
       <div className=" p-4 mx-auto flex flex-col gap-8 ">
         <h1 className="text-white text-4xl font-bold ">All Collection</h1>
         <p className="text-gray-500">
-          ui deleniti inventore labore voluptas eligendi modi rerum! <br />{" "}
-          Commodi nam illum ex eveniet aliquid, quos vitae repellendus corrupti
-          cupiditate, suscipit distinctio hic.
+        Step into elegance with our latest collection shoes.<br />{" "}
+          Each pair is a blend of sophistication and comfort, designed for the modern trendsetter.<br />{" "} From sleek formal options to casual chic, our shoes are your perfect companion for any occasion.
         </p>
       </div>
       <div className="gap-[15rem] flex items-center justify-center space-x-12 gap-20 h-20 mt-4 md:mt-8 lg:mt-20">
@@ -257,34 +258,34 @@ const Home = () => {
           <input
             type="text"
             className="w-[80%] bg-transparent mb-5 pb-4 border-b-[1px] border-input placeholder:text-gray-500 text-white w-[26%] "
-            placeholder="what is in your mind ?                                                                                      +"
+            placeholder="what is in your mind                                                                                   +"
           />
           <input
             type="text"
             className="w-[80%] bg-transparent mb-5 pb-4 border-b-[1px] border-input placeholder:text-gray-500 text-white w-[26%] "
-            placeholder="what is in your mind ?                                                                                      +"
+            placeholder="what is in your mind                                                                                   +"
           />
           <input
             type="text"
             className="w-[80%] bg-transparent mb-5 pb-4 border-b-[1px] border-input placeholder:text-gray-500 text-white w-[26%] "
-            placeholder="what is in your mind ?                                                                                      +"
+            placeholder="what is in your mind                                                                                    +"
           />
         </div>
         <div className="  flex flex-col flex-1 justify-center items-center">
           <input
             type="text"
             className="w-[80%] bg-transparent mb-5 pb-4 border-b-[1px] border-input placeholder:text-gray-500 text-white w-[26%] "
-            placeholder="what is in your mind ?                                                                                      +"
+            placeholder="what is in your mind                                                                                    +"
           />
           <input
             type="text"
             className="w-[80%] bg-transparent mb-5 pb-4 border-b-[1px] border-input placeholder:text-gray-500 text-white w-[26%] "
-            placeholder="what is in your mind ?                                                                                      +"
+            placeholder="what is in your mind                                                                                    +"
           />
           <input
             type="text"
             className="w-[80%] bg-transparent mb-5 pb-4 border-b-[1px] border-input placeholder:text-gray-500 text-white w-[26%] "
-            placeholder="what is in your mind ?                                                                                      +"
+            placeholder="what is in your mind                                                                                    +"
           />
         </div>
       </div>
@@ -304,4 +305,3 @@ const Home = () => {
 };
 
 export default Home;
-

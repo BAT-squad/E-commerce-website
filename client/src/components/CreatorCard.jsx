@@ -25,14 +25,21 @@ const CreatorCard = () => {
               </div>
               <div class="flex flex-col space-y-1 justify-center items-center -mt-12 w-full">
                 <span class="text-md whitespace-nowrap text-white font-bold flex items-center gap-2">
-                  Kanye west <MdVerified className="text-blue-500"/>
+                  Kanye west <MdVerified className="text-blue-500" />
                 </span>
                 <p class="text-sm text-gray-400">
-                Style is a way to say who you are without having to speak
+                  Style is a way to say who you are without having to speak
                 </p>
                 <div class=" w-full py-2 flex space-x-2 flex items-center justify-center px-10">
                   <button class="bg-violet-500 text-white font-semibold w-full p-2 rounded-xl ">
-                    <span class="mr-2"></span>+ FOLLOW<span class="ml-2"></span>
+                    <span class="mr-2"></span>{" "}
+                    <a
+                      href="https://www.msn.com/en-us/music/other/kanye-west-slammed-for-selling-200-sock-shoes-in-first-release-since-adidas-fallout/ar-AA1lBIW7"
+                      target="_blank"
+                    >
+                      + FOLLOW
+                    </a>
+                    <span class="ml-2"></span>{" "}
                   </button>
                 </div>
               </div>
@@ -59,14 +66,21 @@ const CreatorCard = () => {
               </div>
               <div class="flex flex-col space-y-1 justify-center items-center -mt-12 w-full">
                 <span class="text-md whitespace-nowrap text-white font-bold flex items-center gap-2">
-                  Madison Beer <MdVerified className="text-blue-500"/>
+                  Madison Beer <MdVerified className="text-blue-500" />
                 </span>
                 <p class="text-sm text-gray-400">
-                Elegance in every stitch, style in every step
+                  Elegance in every stitch, style in every step
                 </p>
                 <div class=" w-full py-2 flex space-x-2 flex items-center justify-center px-10">
                   <button class="bg-violet-500 text-white font-semibold w-full p-2 rounded-xl ">
-                    <span class="mr-2"></span>+ FOLLOW<span class="ml-2"></span>
+                    <span class="mr-2"></span>{" "}
+                    <a
+                      href="https://www.instagram.com/madisonbeer/"
+                      target="_blank"
+                    >
+                      + FOLLOW
+                    </a>
+                    <span class="ml-2"></span>
                   </button>
                 </div>
               </div>
@@ -93,14 +107,21 @@ const CreatorCard = () => {
               </div>
               <div class="flex flex-col space-y-1 justify-center items-center -mt-12 w-full">
                 <span class="text-md whitespace-nowrap text-white font-bold flex items-center gap-2">
-                  John Wick <MdVerified className="text-blue-500"/>
+                  John Wick <MdVerified className="text-blue-500" />
                 </span>
                 <p class="text-sm text-gray-400">
-                Fashion is the armor to survive the reality of everyday life
+                  Fashion is the armor to survive the reality of everyday life
                 </p>
                 <div class=" w-full py-2 flex space-x-2 flex items-center justify-center px-10">
                   <button class="bg-violet-500 text-white font-semibold w-full p-2 rounded-xl ">
-                    <span class="mr-2"></span>+ FOLLOW<span class="ml-2"></span>
+                    <span class="mr-2"></span>{" "}
+                    <a
+                      href="https://www.instagram.com/madisonbeer/"
+                      target="_blank"
+                    >
+                      + FOLLOW
+                    </a>
+                    <span class="ml-2"></span>
                   </button>
                 </div>
               </div>

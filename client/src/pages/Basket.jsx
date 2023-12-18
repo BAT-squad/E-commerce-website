@@ -1,6 +1,17 @@
-import React from 'react'
-
+import React, { useEffect, useState } from 'react'
+import BasketList from './basket/basketList';
+import axios from "axios"
 const Basket = () => {
+  const [data, setData] = useState([])
+  function getItems(){
+  axios.get("http://localhost:5001/api/basket/get/all/89").then((response)=>{
+    setData(response.data)
+  })    
+}
+useEffect(()=>{
+  getItems()
+},[])
+console.log(data)
   return (
     <div>
       <p className="text-transparent">.</p>
@@ -16,17 +27,14 @@ const Basket = () => {
           </p>
         </div>
 
-        <div className="iphone:left-[60%] w-[75%] h-[500px] absolute left-[20%] rounded-lg bg-login sm:float-left iphone:w-[280px]">
+        <div className="iphone:left-[60%] w-[75%] min-h-[500px] absolute left-[20%] rounded-lg bg-login sm:float-left iphone:w-[280px]">
           <h1 className="font-bold leading-10 tracking-tighter text-center text-lg mr-auto mt-4  text-blue-700 iphone:w-20">
-            Your basket 
+            Your basket
           </h1>
-         
-        </div>
-         
-          <div className="mt-16">
-            <p className="text-white text-center">Or</p>
+          <div>
+            <BasketList data = {data} getItems = {getItems}/>
           </div>
-
+        </div>
           
         </div>
       </div>

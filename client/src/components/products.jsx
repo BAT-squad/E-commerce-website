@@ -4,6 +4,18 @@ import { Link } from "react-router-dom";
 const Products = () => {
   const [products, setProducts] = useState([]);
   const [selectedProduct, setSelectedProduct] = useState(null);
+  const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+  const userId = currentUser.userID;
+  const AddToBasket = (productId) => {
+    const obj = { users_userID: userId, products_productID: productId };
+    console.log(obj, "testttttt");
+    axios
+      .post("http://localhost:5001/api/basket/add", obj)
+      .then(() => console.log("done"))
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   useEffect(() => {
     const apiUrl = "http://localhost:5001/api/products/get";
@@ -37,11 +49,21 @@ const Products = () => {
   return (
     <>
       <div className=" flex justify-around mt-[10rem]">
-        <button className="bg-violet-700 text-white font-semibold p-2 rounded-lg  px-8">All Collections</button>
-        <button className="bg-white bg-opacity-10 text-white font-semibold p-2 rounded-lg px-8">Verified Brands</button>
-        <button className="bg-white bg-opacity-10 text-white font-semibold p-2 rounded-lg px-8">Verified Artists</button>
-        <button className="bg-white bg-opacity-10 text-white font-semibold p-2 rounded-lg px-8">New Drops</button>
-        <button className="bg-white bg-opacity-10 text-white font-semibold p-2 rounded-lg px-8">Live Shows</button>
+        <button className="bg-violet-700 text-white font-semibold p-2 rounded-lg  px-8">
+          All Collections
+        </button>
+        <button className="bg-white bg-opacity-10 text-white font-semibold p-2 rounded-lg px-8">
+          Verified Brands
+        </button>
+        <button className="bg-white bg-opacity-10 text-white font-semibold p-2 rounded-lg px-8">
+          Verified Artists
+        </button>
+        <button className="bg-white bg-opacity-10 text-white font-semibold p-2 rounded-lg px-8">
+          New Drops
+        </button>
+        <button className="bg-white bg-opacity-10 text-white font-semibold p-2 rounded-lg px-8">
+          Live Shows
+        </button>
       </div>
       <div className="flex flex-wrap justify-center gap-8 ">
         {products.map((product) => (
@@ -60,10 +82,10 @@ const Products = () => {
                   {product.productName}
                 </h2>
                 <div className="w-full flex flex-row justify-between">
-                <p className="text-white flex items-stretch">
-                  ${product.price}
-                </p>
-                <h3 className="flex items-stretch">{product.category}</h3>
+                  <p className="text-white flex items-stretch">
+                    ${product.price}
+                  </p>
+                  <h3 className="flex items-stretch">{product.category}</h3>
                 </div>
                 <div className="flex items-center mt-2">
                   <div className=" container mr-2 flex justify-between items-center">
@@ -82,12 +104,14 @@ const Products = () => {
                     >
                       <path d="M16.4,4C14.6,4,13,4.9,12,6.3C11,4.9,9.4,4,7.6,4C4.5,4,2,6.5,2,9.6C2,14,12,22,12,22s10-8,10-12.4C22,6.5,19.5,4,16.4,4z"></path>
                     </svg>
-                <Link
-                  to="/basket"
-                  className="text-white bg-violet-600 rounded-full w-[190px] p-2"
-                >
-                  Buy Now
-                </Link>
+                    <button
+                      className="text-white bg-violet-600 rounded-full w-[190px] p-2"
+                      onClick={() => {
+                        AddToBasket(product.productID);
+                      }}
+                    >
+                      Buy Now
+                    </button>
                   </div>
                 </div>
               </div>

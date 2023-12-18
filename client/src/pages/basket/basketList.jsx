@@ -1,7 +1,6 @@
 import React from 'react'
 import BasketDetails from "./BasketDets"
  const BasketList = (props) => { 
-  console.log(props)
   return (
     <span>
         {

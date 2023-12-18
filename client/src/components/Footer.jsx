@@ -38,7 +38,7 @@ const Footer = () => {
         </div>
         <div>
             
-{/* <div className=""> */}
+
 
         </div>
         <ul className="w-full md:w-1/2 lg:w-1/4 mb-8 md:mb-0 flex flex-wrap gap-10">
@@ -92,7 +92,7 @@ const Footer = () => {
           </li>
         </ul>
 
-{/* </div> */}
+
         <div className="w-full lg:w-1/4 text-gray-600">
           <p className="hidden lg:block">&copy; 2023 All rights reserved.</p>
           <div className="mt-2">

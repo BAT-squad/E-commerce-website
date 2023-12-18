@@ -13,20 +13,6 @@ export default function SlideBar({fetchItemsUnderPrice}) {
     fetchItemsUnderPrice(sliderValue);
   }, [sliderValue]);
 
-  // const fetchItemsUnderPrice = async () => {
-  //   try {
-   
-  //     const response = await fetch(`http://localhost:5001/api/products/price/1/${sliderValue}`);
-  //     const newData = await response.json();
-    
-  //     setData(newData);
-
-  //     console.log('Items under the price:', newData);
-  //   } catch (error) {
-  //     console.error('Error fetching items:', error);
-  //   }
-  // };
-
   return (
     <div>
      

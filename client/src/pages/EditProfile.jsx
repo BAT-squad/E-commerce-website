@@ -27,7 +27,7 @@ const EditProfile = () => {
       navigate('/profile')
     })
     .catch((err) => console.log(err));
-    // console.log(formData);
+   
   }
 
   return (

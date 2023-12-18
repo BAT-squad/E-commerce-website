@@ -127,7 +127,7 @@ const CreatePost = ({ currentUser }) => {
               className="w-full  bg-transparent resize-none text-2xl text-white outline-none placeholder-gray-400 focus:placeholder-gray-500"
               onChange={(e) => {
                 setContent(e.target.value);
-                console.log(content);
+                
               }}
             ></textarea>
             <img src={image} className="w-[20rem] rounded-lg" alt="" />
